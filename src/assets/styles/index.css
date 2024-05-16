@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+body {
   font-family: "Montserrat", sans-serif;
 }
 a {
@@ -23,4 +23,22 @@ img {
 }
 .lato {
   font-family: "Lato", sans-serif !important;
+}
+.fs-11 {
+  font-size: 11px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.css-hyum1k-MuiToolbar-root {
+  padding: 0 !important;
+}
+.css-1hcvhb1-MuiCollapse-root {
+    width: unset !important;
 }
