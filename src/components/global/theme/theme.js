@@ -3,7 +3,9 @@ const theme = createTheme({
   typography: {
   },
   palette: {
-    
+    black: "#1D1D1D",
+    textGray: "#767676",
+    textLightGray:"#9B9B9B"
   },
 });
 export default theme;
