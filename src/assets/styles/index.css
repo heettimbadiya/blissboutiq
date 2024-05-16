@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+body {
   font-family: "Montserrat", sans-serif;
 }
 a {
@@ -23,4 +23,59 @@ img {
 }
 .lato {
   font-family: "Lato", sans-serif !important;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========slider================= */
+.Listing .dash::before,
+.List .dash::before {
+  content: "";
+  position: absolute;
+  height: 2.5px;
+  width: 28px;
+  background-color: white;
+}
+
+.Listing .swiper-pagination-bullet-active .dash::before,
+.List .swiper-pagination-bullet-active .dash::before {
+  background: black;
+}
+
+.Listing .custom-dot,
+.List .custom-dot {
+  display: inline-block;
+  width: 28px;
+  height: 10px;
+  background-color: transparent;
+  color: #000;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ================singleproduct================== */
+.css-1p5qn3q-MuiButtonBase-root-MuiAccordionSummary-root,
+.css-1btxjyt-MuiButtonBase-root-MuiAccordionSummary-root {
+  padding: 0px !important;
+}
+.fs-11 {
+  font-size: 11px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.css-hyum1k-MuiToolbar-root {
+  padding: 0 !important;
+}
+.css-1hcvhb1-MuiCollapse-root {
+    width: unset !important;
 }

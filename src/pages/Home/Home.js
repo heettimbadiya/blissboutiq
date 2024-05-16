@@ -9,8 +9,9 @@ const Home = () => {
       <MainSlider />
       {/* <ProductListing /> */}
       <Category />
+      
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
