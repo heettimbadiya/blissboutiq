@@ -3,7 +3,7 @@ import productImg1 from "../../assets/images/Home/Listing/productImg1.png";
 import productImg2 from "../../assets/images/Home/Listing/productImg2.png";
 import productImg3 from "../../assets/images/Home/Listing/productImg3.png";
 import productImg4 from "../../assets/images/Home/Listing/productImg4.png";
-import { Box, Container, Grid, Radio, RadioGroup, Typography } from "@mui/material";
+import { Box, Container, Grid, Radio, RadioGroup, Typography, useTheme } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
@@ -11,6 +11,7 @@ import StarIcon from "@mui/icons-material/Star";
 
 const ProductListing = () => {
   // const swiperRefs = [useRef(null)];
+  const theme = useTheme()
   const [selectedColor, setSelectedColor] = useState("");
 
   const handleColorChange = (event) => {
@@ -43,7 +44,7 @@ const ProductListing = () => {
         <Container maxWidth="xl">
           <Box className="Listing">
             <Grid container spacing={3}>
-              {[0, 1 ,2].map((index) => (
+              {[0, 1, 2].map((index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Box className="product-container">
                     <Box sx={{ position: "relative" }}>
@@ -106,9 +107,10 @@ const ProductListing = () => {
                       fontSize: "13px",
                       my: "10px",
                       cursor: "pointer",
-                      color: "#696969",
+                      display: "inline-block",
+                      color: theme.palette.textGray,
                       "&:hover": {
-                        color: "black",
+                        color: theme.palette.common.black,
                         fontWeight: "500",
                         textDecoration: "underline",
                       },
@@ -117,7 +119,7 @@ const ProductListing = () => {
                     Solid Tonal Medium Swim Shorts
                   </Box>
                   <Box sx={{ fontSize: "14px" }}>
-                    <del style={{ color: "#808080" }}>$65.00</del>
+                    <del style={{ color: theme.palette.textGray }}>$65.00</del>
                     <Typography
                       component={"span"}
                       sx={{ mx: "6px", fontSize: "15px" }}
@@ -126,7 +128,7 @@ const ProductListing = () => {
                     </Typography>
                     <Typography
                       component={"span"}
-                      sx={{ color: "#808080", fontSize: "15px" }}
+                      sx={{ color: theme.palette.textGray, fontSize: "15px" }}
                     >
                       20% off
                     </Typography>
@@ -155,12 +157,22 @@ const ProductListing = () => {
                       ))}
                     </RadioGroup>
                   </Box>
-                  <Box sx={{mt: "6px"}}>
-                    <Typography component={"span"} sx={{mx: "1px"}}><StarIcon fontSize="16px"/></Typography>
-                    <Typography component={"span"} sx={{mx: "1px"}}><StarIcon fontSize="16px"/></Typography>
-                    <Typography component={"span"} sx={{mx: "1px"}}><StarIcon fontSize="16px"/></Typography>
-                    <Typography component={"span"} sx={{mx: "1px"}}><StarIcon fontSize="16px"/></Typography>
-                    <Typography component={"span"} sx={{mx: "1px"}}><StarIcon fontSize="16px"/></Typography>
+                  <Box sx={{ mt: "6px" }}>
+                    <Typography component={"span"} sx={{ mx: "1px" }}>
+                      <StarIcon fontSize="16px" />
+                    </Typography>
+                    <Typography component={"span"} sx={{ mx: "1px" }}>
+                      <StarIcon fontSize="16px" />
+                    </Typography>
+                    <Typography component={"span"} sx={{ mx: "1px" }}>
+                      <StarIcon fontSize="16px" />
+                    </Typography>
+                    <Typography component={"span"} sx={{ mx: "1px" }}>
+                      <StarIcon fontSize="16px" />
+                    </Typography>
+                    <Typography component={"span"} sx={{ mx: "1px" }}>
+                      <StarIcon fontSize="16px" />
+                    </Typography>
                   </Box>
                 </Grid>
               ))}

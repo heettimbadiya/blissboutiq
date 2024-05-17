@@ -1,15 +1,21 @@
 import React from 'react'
-import { Box, Container, Grid } from '@mui/material'
+import { Box, Container, Grid, useTheme } from '@mui/material'
 import category1 from '../../assets/images/Home/categoey/category1.png';
+import category2 from '../../assets/images/Home/categoey/category2.png';
+import category3 from '../../assets/images/Home/categoey/category3.png';
+import category4 from '../../assets/images/Home/categoey/category4.png';
+import category5 from '../../assets/images/Home/categoey/category5.png';
+import category6 from '../../assets/images/Home/categoey/category6.png';
 
 const Category = () => {
+  const theme = useTheme()
     const categories = [
         {img: category1,title: "SUMMER STORE"},
-        {img: category1,title: "SUMMER STORE"},
-        {img: category1,title: "SUMMER STORE"},
-        {img: category1,title: "SUMMER STORE"},
-        {img: category1,title: "SUMMER STORE"},
-        {img: category1,title: "SUMMER STORE"},
+        {img: category2,title: "MEN"},
+        {img: category3,title: "WOMEN"},
+        {img: category4,title: "BOYS"},
+        {img: category5,title: "GIRLS"},
+        {img: category6,title: "GIFT  CARD"},
     ]
   return (
     <>
@@ -40,10 +46,11 @@ const Category = () => {
                     />
                   </Box>
                   <Box
+                    className="lato"
                     sx={{
                       mt: "14px",
-                      fontWeight: "500",
-                      color: "#0e3051",
+                      fontWeight: "600",
+                      color: theme.palette.black,
                       fontSize: "18px",
                     }}
                   >

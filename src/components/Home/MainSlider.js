@@ -86,7 +86,7 @@ const MainSlider = () => {
           sx={{ fontSize: "25px" }}
           onClick={handleNext}
         >
-          <i className="fa-solid fa-chevron-righ icont"></i>
+          <i className="fa-solid fa-chevron-right icon"></i>
         </Button>
       </Box>
     </>

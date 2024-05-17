@@ -5,21 +5,23 @@ import {
   Box,
   Grid,
   Typography,
+  useTheme,
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import React, { useRef, useState } from "react";
-import img1 from "../../assets/images/home/SingalProduct/pro-1.webp";
-import img2 from "../../assets/images/home/SingalProduct/pro-2.webp";
-import img3 from "../../assets/images/home/SingalProduct/pro-3.webp";
-import img4 from "../../assets/images/home/SingalProduct/pro-4.webp";
-import img5 from "../../assets/images/home/SingalProduct/pro-5.webp";
-import img6 from "../../assets/images/home/SingalProduct/pro-6.webp";
-import mini1 from "../../assets/images/home/SingalProduct/miniImg-1.jpg";
-import mini2 from "../../assets/images/home/SingalProduct/miniImg-2.jpg";
-import mini3 from "../../assets/images/home/SingalProduct/miniImg-3.jpg";
-import mini4 from "../../assets/images/home/SingalProduct/miniImg-4.jpg";
+// import img1 from "../../assets/images/Home/SingalProduct";
+import img1 from "../../assets/images/Home/SingalProduct/pro-1.webp";
+import img2 from "../../assets/images/Home/SingalProduct/pro-2.webp";
+import img3 from "../../assets/images/Home/SingalProduct/pro-3.webp";
+import img4 from "../../assets/images/Home/SingalProduct/pro-4.webp";
+import img5 from "../../assets/images/Home/SingalProduct/pro-5.webp";
+import img6 from "../../assets/images/Home/SingalProduct/pro-6.webp";
+import mini1 from "../../assets/images/Home/SingalProduct/miniImg-1.jpg";
+import mini2 from "../../assets/images/Home/SingalProduct/miniImg-2.jpg";
+import mini3 from "../../assets/images/Home/SingalProduct/miniImg-3.jpg";
+import mini4 from "../../assets/images/Home/SingalProduct/miniImg-4.jpg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -30,6 +32,8 @@ function SingalProduct() {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const theme = useTheme();
 
   const singleProductImg = [
     { img: img1 },
@@ -43,7 +47,7 @@ function SingalProduct() {
     <>
       <Box>
         <Box className="List">
-          <Grid container sx={{height:"1300px"}}>
+          <Grid container sx={{ height: "1280px" }}>
             <Grid
               item
               md={7}
@@ -58,7 +62,7 @@ function SingalProduct() {
                   {singleProductImg.map((item, index) => (
                     <Grid item md={6}>
                       <img src={item.img} alt={item.img} />
-                    </Grid> 
+                    </Grid>
                   ))}
                 </Grid>
               </Box>
@@ -158,6 +162,7 @@ function SingalProduct() {
                   <Box>
                     <Typography
                       variant="h3"
+                      className="lato"
                       sx={{
                         fontWeight: "900",
                         fontSize: { lg: "45px", md: "30px" },
@@ -171,6 +176,7 @@ function SingalProduct() {
                 <Box>
                   <Typography
                     variant="h3"
+                    className="lato"
                     sx={{
                       fontWeight: "800",
                       fontSize: { md: "26px", lg: "35px", xs: "22px" },
@@ -194,7 +200,7 @@ function SingalProduct() {
                       component="span"
                       sx={{
                         fontSize: "14px",
-                        color: "#666666",
+                        color: theme.palette.textGray,
                         padding: "0px 0px 0px 5px",
                         fontWeight: "400",
                       }}
@@ -206,13 +212,14 @@ function SingalProduct() {
                 </Box>
                 <Box>
                   <Typography
+                    className="lato"
                     sx={{
                       display: "inline-block",
                       fontSize: "14px",
                       fontWeight: "600",
                       marginTop: "22px",
-                      backgroundColor: "#000000",
-                      color: "white",
+                      backgroundColor: theme.palette.common.black,
+                      color: theme.palette.common.white,
                       padding: "8px",
                     }}
                   >
@@ -261,7 +268,7 @@ function SingalProduct() {
                       display: "flex",
                       justifyContent: "space-between",
                       fontSize: "13px",
-                      color: "#696969",
+                      color: theme.palette.textGray,
                     }}
                   >
                     <Typography variant="span">Select Size</Typography>
@@ -309,11 +316,12 @@ function SingalProduct() {
                 </Box>
                 <Box mt={5}>
                   <button
+                    className="lato"
                     style={{
                       width: "100%",
                       border: "none",
-                      backgroundColor: "black",
-                      color: "white",
+                      backgroundColor: theme.palette.common.black,
+                      color: theme.palette.common.white,
                       fontSize: "16px",
                       fontWeight: "bold",
                       padding: "16px 0px",
@@ -324,7 +332,7 @@ function SingalProduct() {
                 </Box>
                 <Box
                   mt={3}
-                  bgcolor={"#F6F6F6"}
+                  bgcolor={theme.palette.liteGrayBack}
                   display={"flex"}
                   justifyContent={"space-between"}
                   sx={{ padding: "5px" }}
@@ -360,6 +368,7 @@ function SingalProduct() {
                     onChange={handleChange("panel1")}
                   >
                     <AccordionSummary
+                      className="lato"
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1-content"
                       id="panel1-header"
@@ -376,7 +385,7 @@ function SingalProduct() {
                         sx={{
                           fontSize: "16px",
                           fontWeight: "bold",
-                          color: "#999999",
+                          color: theme.palette.textLightGray,
                         }}
                       >
                         STYLE H-HANK-TUX1-DC-224 - 50480093
@@ -415,6 +424,7 @@ function SingalProduct() {
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel2-content"
                       id="panel2-header"
+                      className="lato"
                       sx={{
                         fontWeight: "bold",
                         fontSize: "16px",
@@ -469,7 +479,7 @@ function SingalProduct() {
                   >
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel3-content"
+                      className="lato"
                       id="panel3-header"
                       sx={{
                         fontWeight: "bold",

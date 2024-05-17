@@ -1,13 +1,16 @@
 import React from "react";
 import Home from "./pages/Home/Home";
-import ProductImages from "./pages/Productimages/ProductImages";
+import Header from './components/global/header/Header';
+import Footer from './components/global/footer/Footer';
+import Full from "./Full";
 
 function App() {
   return (
     <>
+      {/* <Header />
       <Home />
-   
-      <ProductImages />
+      <Footer /> */}
+   <Full />
     </>
   );
 }
