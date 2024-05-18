@@ -7,6 +7,7 @@ const theme = createTheme({
     textGray: "#767676",
     textLightGray:"#9B9B9B",
     liteGrayBack: "#F6F6F6",
+    white:"#fff"
   },
 });
 export default theme;

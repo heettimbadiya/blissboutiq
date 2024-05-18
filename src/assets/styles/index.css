@@ -82,3 +82,11 @@ img {
 .css-15v22id-MuiAccordionDetails-root {
   padding: 7px 0px 0px !important;
 }
+
+
+
+/* ============== profile tabs ============= */
+.css-1aquho2-MuiTabs-indicator {
+   
+    background-color: unset !important;
+}

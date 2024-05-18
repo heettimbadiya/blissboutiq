@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <>
       <MainSlider />
-      <Category />
+      {/* <Category />
       <ProductImages />
       <ProductListing />
-      <SingalProduct />
+      <SingalProduct /> */}
     </>
   );
 };

@@ -16,7 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../../assets/images/header/{CA3D619A-B80C-4338-9E4C-E682A7AA9F67}.png.jpg";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   fullMegamenu1,
   fullMegamenu2,
@@ -32,7 +32,7 @@ const Header = () => {
   const drawerWidth2 = 370;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState();
-
+const navigate = useNavigate()
   const handleDrawerToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     setMobileSubMenuOpen();
@@ -162,6 +162,7 @@ const Header = () => {
         sx={{
           backgroundColor: "white",
           boxShadow: "0 2px 48px 0 rgba(0,0,0,.08)",
+          paddingInline:"50px"
         }}
       >
         <Toolbar>
@@ -243,7 +244,7 @@ const Header = () => {
                       display: { xs: "block", xl: "none" },
                       "& .MuiDrawer-paper": {
                         boxSizing: "border-box",
-                        width: {xs:drawerWidth,sm:drawerWidth2},
+                        width: { xs: drawerWidth, sm: drawerWidth2 },
                         // overflowX:"hidden"
                       },
                     }}
@@ -264,8 +265,7 @@ const Header = () => {
                         color: "black",
                         padding: "10px",
                         position: "relative",
-                        fontSize: "15px",
-                        letterSpacing: "-0.7px",
+                        fontSize: "16px",
                         transition: "0.4s",
                         fontWeight: "600",
                         cursor: "pointer",
@@ -284,14 +284,18 @@ const Header = () => {
                         },
                       }}
                     >
-                      <NavLink to={item.to} style={{ color: "unset" }}>
+                      <NavLink
+                        className="lato"
+                        to={item.to}
+                        style={{ color: "unset" }}
+                      >
                         {item.label}
                       </NavLink>
                       {/* <Box> */}
                       <Box
                         className="subMenu"
                         sx={{
-                          transition: ".5s",
+                          transition: ".3s",
                           backgroundColor: "white",
                           position: "fixed",
                           top: "70px",
@@ -300,16 +304,16 @@ const Header = () => {
                           width: "100vw",
                           borderRadius: "8px",
                           color: "black",
-                          p: "50px 10px",
+                          p: "0px 10px 25px",
                           visibility: "hidden",
                           opacity: "0",
                           display: "flex",
                           justifyContent: "start",
                           textWrap: "wrap",
-                          backgroundColor:"white"
+                          backgroundColor: "white",
                         }}
                       >
-                          {item.subMenu}
+                        {item.subMenu}
                       </Box>
                       {/* </Box> */}
                     </Box>
@@ -327,11 +331,12 @@ const Header = () => {
                 }}
               >
                 <Box
+                  className="lato"
                   sx={{
                     padding: "10px",
                     transition: "0.4s",
                     borderRadius: "15px",
-                    cursor:"pointer",
+                    cursor: "pointer",
                     "&:hover": {
                       color: "white",
                       backgroundColor: "black",
@@ -342,12 +347,13 @@ const Header = () => {
                   Support
                 </Box>
                 <Box
+                  className="lato"
                   sx={{
                     padding: "10px",
                     transition: "0.4s",
                     borderRadius: "15px",
                     textWrap: "nowrap",
-                    cursor:"pointer",
+                    cursor: "pointer",
                     "&:hover": {
                       color: "white",
                       backgroundColor: "black",
@@ -363,13 +369,19 @@ const Header = () => {
                     marginInline: { xl: "30px", xs: "10px" },
                   }}
                 >
-                  <Box sx={{ fontSize: "22px",cursor:"pointer" }}>
+                  <Box sx={{ fontSize: "22px", cursor: "pointer" }}>
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </Box>
-                  <Box sx={{ marginInline: "15px", fontSize: "22px",cursor:"pointer" }}>
+                  <Box
+                    sx={{
+                      marginInline: "15px",
+                      fontSize: "22px",
+                      cursor: "pointer",
+                    }}
+                  >
                     <i class="fa-solid fa-cart-shopping"></i>
                   </Box>
-                  <Box sx={{ fontSize: "22px",cursor:"pointer" }}>
+                  <Box sx={{ fontSize: "22px", cursor: "pointer" }} onClick={() => navigate("/profile")} >
                     <i class="fa-regular fa-user"></i>
                   </Box>
                 </Box>
