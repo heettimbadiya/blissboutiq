@@ -57,8 +57,8 @@ const ProductListing = () => {
                           prevEl: `.swiper-button-prev-${index}`,
                         }}
                         modules={[EffectFade, Navigation, Pagination]}
-                        className="mySwiper"
-                        loop={true}
+                        // className="mySwiper"
+                        loop={false}
                         pagination={{
                           clickable: true,
                           renderBullet: (bulletIndex, className) => {
@@ -89,13 +89,13 @@ const ProductListing = () => {
                       </button>
                       <button className="quick-view-button">Quick View</button>
                       <button
-                        className={`swiper-button-prev navigation-button swiper-button-prev-${index}`}
+                        className={`ListingSlider-prev navigation-button swiper-button-prev-${index}`}
                         // onClick={() => handlePrev(index)}
                       >
                         <i className="fa-solid fa-chevron-left"></i>
                       </button>
                       <button
-                        className={`swiper-button-next navigation-button swiper-button-next-${index}`}
+                        className={`ListingSlider-next navigation-button swiper-button-next-${index}`}
                         // onClick={() => handleNext(index)}
                       >
                         <i className="fa-solid fa-chevron-right"></i>
