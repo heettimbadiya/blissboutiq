@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
+import "../../../node_modules/swiper/swiper-bundle.min.css";
 import img1 from "../../assets/images/Home/Mainslider/img1.png";
 import img2 from "../../assets/images/Home/Mainslider/img2.png";
 import img3 from "../../assets/images/Home/Mainslider/img3.png";
@@ -50,13 +51,18 @@ const MainSlider = () => {
       <Box className="mainSlider" sx={{ position: "relative" }}>
         <Swiper
           navigation={{
-            nextEl: ".swiper-button-next",
+            nextEl: ".swiper-button-next ",
             prevEl: ".swiper-button-prev",
           }}
           modules={[Navigation, Pagination]}
           className="mySwiper"
           loop={true}
-          pagination={true}
+          pagination={{
+            clickable: true,
+            renderBullet: (bulletIndex, className) => {
+              return `<span class="${className} custom-dot"><span class="dash"></span></span>`;
+            },
+          }}
         >
           {mainSlider.map((item) => (
             <SwiperSlide>

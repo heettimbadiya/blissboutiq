@@ -6,15 +6,6 @@
 .mainSlider .swiper-pagination-fraction {
   bottom: 7%;
 }
-.mainSlider .swiper-pagination-bullet {
-  background-color: rgba(197, 197, 197, 0.4);
-  opacity: 1;
-}
-.mainSlider .swiper-pagination-bullet-active {
-  border-radius: 5px;
-  padding: 0 15px;
-  background-color: #fa0783;
-}
 
 .mainSlider .swiper-button-next:after,
 .mainSlider .swiper-button-prev:after {
@@ -43,10 +34,10 @@
   right: 130px;
 }
 @media only screen and (max-width: 900px) {
-  .mainSlider .swiper-button-prev {
+  .mainSlider > .swiper-button-prev {
     left: 10px;
   }
-  .mainSlider .swiper-button-next {
+  .mainSlider > .swiper-button-next {
     right: 10px;
   }
 }
@@ -76,14 +67,14 @@
 .Listing .swiper-button-prev:after {
   display: none;
 }
-.Listing .swiper-button-next,
-.Listing .swiper-button-prev {
+.Listing .ListingSlider-prev,
+.Listing .ListingSlider-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
   background-color: white;
-  padding: 12px 22px;
+  padding: 12px 16px;
   transition: 0.4s;
   color: black;
   border: none;
@@ -94,6 +85,13 @@
 .Listing .swiper-pagination-fraction {
   bottom: 5%;
   left: -5%;
+}
+
+.handpicked .swiper-horizontal > .swiper-pagination-bullets,
+.handpicked .swiper-pagination-bullets.swiper-pagination-horizontal,
+.handpicked .swiper-pagination-custom,
+.handpicked .swiper-pagination-fraction {
+  bottom: -10px;
 }
 .product-container {
   position: relative;
@@ -146,15 +144,14 @@
   background: none;
   border: none;
   font-size: 15px;
-  color: black;
   cursor: pointer;
 }
 
-.navigation-button.swiper-button-prev {
+.navigation-button.ListingSlider-prev {
   left: 10px;
 }
 
-.navigation-button.swiper-button-next {
+.navigation-button.ListingSlider-next {
   right: 10px;
 }
 .radioBtn:checked{

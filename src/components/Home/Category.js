@@ -1,11 +1,11 @@
 import React from 'react'
 import { Box, Container, Grid, useTheme } from '@mui/material'
-import category1 from '../../assets/images/Home/categoey/category1.png';
-import category2 from '../../assets/images/Home/categoey/category2.png';
-import category3 from '../../assets/images/Home/categoey/category3.png';
-import category4 from '../../assets/images/Home/categoey/category4.png';
-import category5 from '../../assets/images/Home/categoey/category5.png';
-import category6 from '../../assets/images/Home/categoey/category6.png';
+import category1 from '../../assets/images/Home/category/category1.png';
+import category2 from '../../assets/images/Home/category/category2.png';
+import category3 from '../../assets/images/Home/category/category3.png';
+import category4 from '../../assets/images/Home/category/category4.png';
+import category5 from '../../assets/images/Home/category/category5.png';
+import category6 from '../../assets/images/Home/category/category6.png';
 
 const Category = () => {
   const theme = useTheme()
@@ -36,6 +36,7 @@ const Category = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
+                    my: "25px"
                   }}
                 >
                   <Box sx={{ width: { xs: "230px", lg: "190px" } }}>

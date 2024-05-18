@@ -5,6 +5,8 @@ import ProductListing from '../../components/Home/ProductListing'
 import Category from '../../components/Home/Category'
 import ProductImages from '../../components/Home/ProductGrid';
 import SingalProduct from "../../components/Home/SingalProduct";
+import Category2 from '../../components/Home/Category2'
+import HandPickedForYou from '../../components/Home/HandPickedForYou'
 const Home = () => {
   return (
     <>
@@ -12,7 +14,9 @@ const Home = () => {
       <Category />
       <ProductImages />
       <ProductListing />
-      <SingalProduct />
+      {/* <SingalProduct /> */}
+      <Category2 />
+      <HandPickedForYou />
     </>
   );
 };
