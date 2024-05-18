@@ -3,7 +3,11 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  FormControl,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -11,21 +15,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import React, { useRef, useState } from "react";
-// import img1 from "../../assets/images/Home/SingalProduct";
-import img1 from "../../assets/images/Home/SingalProduct/pro-1.webp";
-import img2 from "../../assets/images/Home/SingalProduct/pro-2.webp";
-import img3 from "../../assets/images/Home/SingalProduct/pro-3.webp";
-import img4 from "../../assets/images/Home/SingalProduct/pro-4.webp";
-import img5 from "../../assets/images/Home/SingalProduct/pro-5.webp";
-import img6 from "../../assets/images/Home/SingalProduct/pro-6.webp";
-import mini1 from "../../assets/images/Home/SingalProduct/miniImg-1.jpg";
-import mini2 from "../../assets/images/Home/SingalProduct/miniImg-2.jpg";
-import mini3 from "../../assets/images/Home/SingalProduct/miniImg-3.jpg";
-import mini4 from "../../assets/images/Home/SingalProduct/miniImg-4.jpg";
+import img1 from "../../assets/images/Home/SingleProduct/pro-1.webp";
+import img2 from "../../assets/images/Home/SingleProduct/pro-2.webp";
+import img3 from "../../assets/images/Home/SingleProduct/pro-3.webp";
+import img4 from "../../assets/images/Home/SingleProduct/pro-4.webp";
+import img5 from "../../assets/images/Home/SingleProduct/pro-5.webp";
+import img6 from "../../assets/images/Home/SingleProduct/pro-6.webp";
+import mini1 from "../../assets/images/Home/SingleProduct/miniImg-1.jpg";
+import mini2 from "../../assets/images/Home/SingleProduct/miniImg-2.jpg";
+import mini3 from "../../assets/images/Home/SingleProduct/miniImg-3.jpg";
+import mini4 from "../../assets/images/Home/SingleProduct/miniImg-4.jpg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-function SingalProduct() {
+function SingleProduct() {
   const swiperRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
 
@@ -34,6 +37,11 @@ function SingalProduct() {
   };
 
   const theme = useTheme();
+  const [qty, setQty] = useState("");
+
+  const handleChange1 = (event) => {
+    setQty(event.target.value);
+  };
 
   const singleProductImg = [
     { img: img1 },
@@ -45,9 +53,9 @@ function SingalProduct() {
   ];
   return (
     <>
-      <Box>
+      <Box my={5}>
         <Box className="List">
-          <Grid container sx={{ height: "1280px" }}>
+          <Grid container sx={{ height: { md: "1250px", xs: "100%" } }}>
             <Grid
               item
               md={7}
@@ -103,9 +111,14 @@ function SingalProduct() {
                 ))}
               </Swiper>
             </Grid>
-            <Grid item md={5} sx={{ height: "100vh" }}>
+            <Grid item md={5} sx={{ height: { xs: "100%", md: "100vh" } }}>
               <Box
-                sx={{ padding: { md: "35px 74px 20px", xs: "25px 34px 10px" } }}
+                sx={{
+                  padding: {
+                    md: "35px 74px 20px",
+                    xs: "25px 34px 10px",
+                  },
+                }}
               >
                 <Box
                   display={{ lg: "flex", md: "block", xs: "none" }}
@@ -314,7 +327,24 @@ function SingalProduct() {
                     </Box>
                   </Box>
                 </Box>
-                <Box mt={5}>
+                <Box mt={5} display={{ md: "flex", xs: "block" }}>
+                  <FormControl
+                    sx={{
+                      width: "250px",
+                      padding: { xs: "12px 0px", md: "0px" },
+                      margin: { xs: "0px 0px 0px 0px", md: "0px 10px 0px 0px" },
+                    }}
+                  >
+                    <InputLabel>Qty</InputLabel>
+                    <Select value={qty} label="Qty" onChange={handleChange1}>
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                      <MenuItem value={6}>6</MenuItem>
+                    </Select>
+                  </FormControl>
                   <button
                     className="lato"
                     style={{
@@ -324,7 +354,7 @@ function SingalProduct() {
                       color: theme.palette.common.white,
                       fontSize: "16px",
                       fontWeight: "bold",
-                      padding: "16px 0px",
+                      padding: "16px 0px 16px 0px",
                     }}
                   >
                     ADD TO CART
@@ -352,7 +382,7 @@ function SingalProduct() {
                       sx={{
                         width: "32px",
                         height: "52px",
-                        margin: "px 0px 0px 16px",
+                        margin: "0px 0px 0px 16px",
                         display: "flex",
                         alignItems: "center",
                       }}
@@ -503,4 +533,4 @@ function SingalProduct() {
   );
 }
 
-export default SingalProduct;
+export default SingleProduct;
