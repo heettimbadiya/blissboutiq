@@ -16,7 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../../assets/images/header/{CA3D619A-B80C-4338-9E4C-E682A7AA9F67}.png.jpg";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   fullMegamenu1,
   fullMegamenu2,
@@ -32,7 +32,7 @@ const Header = () => {
   const drawerWidth2 = 370;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState();
-
+  const navigate = useNavigate();
   const handleDrawerToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     setMobileSubMenuOpen();
@@ -40,30 +40,29 @@ const Header = () => {
 
   const menuItems = [
     {
-      label: "Haute Couture",
+      label: "New Arrivals",
       to: "/",
       subMenu: null,
     },
     {
-      label: "Fashion",
+      label: "Men",
       to: "/service",
       subMenu: fullMegamenu1,
     },
-    { label: "High Jewellery ", to: "/about", subMenu: null },
+    { label: "Women ", to: "/about", subMenu: null },
     {
-      label: "Fine Jewellery",
+      label: "Kids",
       to: "/pages",
       subMenu: fullMegamenu2,
     },
     {
-      label: "Watches",
+      label: "Shoes & Accessories",
       to: "",
       subMenu: fullMegamenu3,
     },
-    { label: "Eyewear", to: "/contact", subMenu: fullMegamenu4 },
-    { label: "Fragrance", to: "/contact", subMenu: fullMegamenu5 },
-    { label: "Makeup", to: "/contact", subMenu: fullMegamenu6 },
-    { label: "Skincare", to: "/contact", subMenu: fullMegamenu7 },
+    { label: "Underwear", to: "/contact", subMenu: fullMegamenu4 },
+    { label: "Pre-owned", to: "/contact", subMenu: fullMegamenu7 },
+    { label: "Sale", to: "/contact", subMenu: fullMegamenu6 },
     { label: "About Bliss Boutiq", to: "/contact", subMenu: fullMegamenu8 },
   ];
 
@@ -203,9 +202,12 @@ const Header = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        height: { md: "77.5px", xs: "50px" },
+                        height: { xs: "77.5px" },
                         width: { md: "186px", xs: "120px" },
+                        cursor:"pointer"
+
                       }}
+                      onClick={()=> navigate("/")}
                     >
                       <img
                         src={logo}
@@ -214,25 +216,11 @@ const Header = () => {
                       />
                     </Box>
                   </Typography>
-                  <Box
-                    sx={{
-                      flexGrow: 0,
-                      display: { xs: "flex", xl: "none" },
-                    }}
-                  >
-                    <IconButton
-                      size="large"
-                      aria-label="menu"
-                      onClick={handleDrawerToggle}
-                      sx={{ color: "black", fontSize: "3px" }}
-                    >
-                      <MenuIcon />
-                    </IconButton>
-                  </Box>
                 </Box>
 
                 <nav>
                   <Drawer
+                    anchor="right"
                     variant="temporary"
                     open={mobileMenuOpen}
                     onClose={handleDrawerToggle}
@@ -243,7 +231,7 @@ const Header = () => {
                       display: { xs: "block", xl: "none" },
                       "& .MuiDrawer-paper": {
                         boxSizing: "border-box",
-                        width: {xs:drawerWidth,sm:drawerWidth2},
+                        width: { xs: drawerWidth, sm: drawerWidth2 },
                         // overflowX:"hidden"
                       },
                     }}
@@ -264,18 +252,14 @@ const Header = () => {
                         color: "black",
                         padding: "10px",
                         position: "relative",
-                        fontSize: "15px",
-                        letterSpacing: "-0.7px",
+                        fontSize: "16px",
                         transition: "0.4s",
                         fontWeight: "600",
                         cursor: "pointer",
                         textWrap: "nowrap",
-                        borderRadius: "15px",
 
                         "&:hover": {
-                          color: "white",
-                          backgroundColor: "black",
-                          borderRadius: "15px",
+                          textDecoration: "underline",
                           "& .subMenu": {
                             opacity: item.subMenu === null ? "0" : "1",
                             visibility:
@@ -284,14 +268,18 @@ const Header = () => {
                         },
                       }}
                     >
-                      <NavLink to={item.to} style={{ color: "unset" }}>
+                      <NavLink
+                        className="lato"
+                        to={item.to}
+                        style={{ color: "unset" }}
+                      >
                         {item.label}
                       </NavLink>
                       {/* <Box> */}
                       <Box
                         className="subMenu"
                         sx={{
-                          transition: ".5s",
+                          transition: ".3s",
                           backgroundColor: "white",
                           position: "fixed",
                           top: "70px",
@@ -300,16 +288,16 @@ const Header = () => {
                           width: "100vw",
                           borderRadius: "8px",
                           color: "black",
-                          p: "50px 10px",
+                          p: "0px 10px 25px",
                           visibility: "hidden",
                           opacity: "0",
                           display: "flex",
                           justifyContent: "start",
                           textWrap: "wrap",
-                          backgroundColor:"white"
+                          backgroundColor: "white",
                         }}
                       >
-                          {item.subMenu}
+                        {item.subMenu}
                       </Box>
                       {/* </Box> */}
                     </Box>
@@ -320,38 +308,38 @@ const Header = () => {
               <Box
                 sx={{
                   color: "black",
-                  display: { sm: "flex", xs: "none" },
+                  display: { xs: "flex" },
                   alignItems: "center",
                   fontWeight: "600",
                   letterSpacing: "-0.7px",
                 }}
               >
                 <Box
+                  className="lato"
                   sx={{
                     padding: "10px",
+                    display: { xs: "none", xl: "block" },
                     transition: "0.4s",
                     borderRadius: "15px",
-                    cursor:"pointer",
+                    cursor: "pointer",
                     "&:hover": {
-                      color: "white",
-                      backgroundColor: "black",
-                      borderRadius: "15px",
+                     textDecoration:"underline"
                     },
                   }}
                 >
                   Support
                 </Box>
                 <Box
+                  className="lato"
                   sx={{
                     padding: "10px",
                     transition: "0.4s",
+                    display: { xs: "none", xl: "block" },
                     borderRadius: "15px",
                     textWrap: "nowrap",
-                    cursor:"pointer",
+                    cursor: "pointer",
                     "&:hover": {
-                      color: "white",
-                      backgroundColor: "black",
-                      borderRadius: "15px",
+                     textDecoration:"underline"
                     },
                   }}
                 >
@@ -363,15 +351,40 @@ const Header = () => {
                     marginInline: { xl: "30px", xs: "10px" },
                   }}
                 >
-                  <Box sx={{ fontSize: "22px",cursor:"pointer" }}>
+                  <Box sx={{ fontSize: "22px", cursor: "pointer" }}>
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </Box>
-                  <Box sx={{ marginInline: "15px", fontSize: "22px",cursor:"pointer" }}>
+                  <Box
+                    sx={{
+                      marginInline: "15px",
+                      fontSize: "22px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => navigate("/cart")}
+                  >
                     <i class="fa-solid fa-cart-shopping"></i>
                   </Box>
-                  <Box sx={{ fontSize: "22px",cursor:"pointer" }}>
+                  <Box
+                    sx={{ fontSize: "22px", cursor: "pointer" }}
+                    onClick={() => navigate("/profile")}
+                  >
                     <i class="fa-regular fa-user"></i>
                   </Box>
+                </Box>
+                <Box
+                  sx={{
+                    flexGrow: 0,
+                    display: { xs: "block", xl: "none" },
+                  }}
+                >
+                  <IconButton
+                    size="large"
+                    aria-label="menu"
+                    onClick={handleDrawerToggle}
+                    sx={{ color: "black", fontSize: "3px" }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
                 </Box>
               </Box>
             </Box>

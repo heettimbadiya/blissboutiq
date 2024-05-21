@@ -143,6 +143,14 @@ img {
 }
 
 /* ==================login================== */
+
+
+/* ============== profile tabs ============= */
+.css-1aquho2-MuiTabs-indicator {
+   
+    background-color: unset !important;
+}
+/* ==================login==================== */
 .css-1wc848c-MuiFormHelperText-root {
   color: red !important;
   margin: 10px 0px !important;
@@ -151,3 +159,4 @@ img {
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
   border-radius: 0px !important;
 }
+

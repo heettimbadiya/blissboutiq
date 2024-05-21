@@ -18,7 +18,7 @@ import React from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const Register_form = ({edit}) => {
+const ContactForm = () => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -62,27 +62,15 @@ const Register_form = ({edit}) => {
   return (
     <>
       <Box>
-        <Container maxWidth={`${!edit && "md"}`}>
+        <Container maxWidth="md">
           <Box p={2}>
-            <Box>
-              <Typography
-                variant="h4"
-                className="lato"
-                py={1}
-                mt={3}
-                sx={{ fontSize: { xs: "28px", md: "32px" }, fontWeight: "900" }}
-              >
-                {edit ? "MY ACCOUNT" : "CREATE ACCOUNT"}
-              </Typography>
-            </Box>
             <Box pt={2}>
               <Typography
                 fontWeight={500}
                 sx={{ fontSize: { xs: "12px", md: "18px" } }}
               >
-                {edit
-                  ? ""
-                  : "Register now and start enjoying the benefits of a customer account right away."}
+                Please tell us more about your inquiry using the form below and
+                click to submit your information.
               </Typography>
             </Box>
             <Box pt={1}>
@@ -123,24 +111,6 @@ const Register_form = ({edit}) => {
                   }}
                 >
                   <Grid container spacing={2}>
-                    <Grid item xs={12} md={6}>
-                      <FormControl fullWidth>
-                        <InputLabel>Salutation</InputLabel>
-                        <Select
-                          name="day"
-                          value={formik.values.day}
-                          onChange={formik.handleChange}
-                          error={
-                            formik.touched.day && Boolean(formik.errors.day)
-                          }
-                        >
-                          <MenuItem value="Mr.">Mr.</MenuItem>
-                          <MenuItem value="Ms.">Ms.</MenuItem>
-                          <MenuItem value="Mrs.">Mrs.</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Grid>
-                    <Grid item mg={6}></Grid>
                     <Grid item xs={12} md={6}>
                       <TextField
                         fullWidth
@@ -307,133 +277,53 @@ const Register_form = ({edit}) => {
                         </IconButton>
                       </Box>
                     </Grid>
-                    {!edit && (
-                      <Grid xs={12} my={4} sx={{ padding: "0px 0px 0px 16px" }}>
-                        <Typography my={2} sx={{ fontSize: "15px" }}>
-                          The{" "}
-                          <b style={{ textDecoration: "underline" }}>
-                            {" "}
-                            Terms and Conditions
-                          </b>{" "}
-                          as well as the associated{" "}
-                          <b style={{ textDecoration: "underline" }}>
-                            Privacy Policy
-                          </b>{" "}
-                          are applicable for participation in HUGO BOSS
-                          EXPERIENCE.
-                        </Typography>
-                        <Typography sx={{ fontSize: "15px" }} my={2}>
-                          By clicking “create account”, I confirm that I have
-                          read and agree to the{" "}
-                          <b style={{ textDecoration: "underline" }}>
-                            {" "}
-                            Terms and Conditions{" "}
-                          </b>{" "}
-                          of HUGO BOSS AG for participation in HUGO BOSS
-                          EXPERIENCE.
-                        </Typography>
-                      </Grid>
-                    )}
-
-                    {edit ? (
-                      <>
-                        {" "}
-                        <Grid item xs={12} md={6}>
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            className="lato"
-                            sx={{
-                              textTransform: "unset",
-                              border: "unset",
-                              padding: "12px 48px",
-                              fontSize: "16px",
-                              fontWeight: "700",
-                              borderRadius: "0px",
-                              width: { xs: "100%", md: "unset" },
-                              backgroundColor: theme.palette.liteGrayBack,
-                              color: theme.palette.black,
-                              "&:hover": {
-                                backgroundColor: theme.palette.liteGrayBack,
-                                color: theme.palette.common.black,
-                              },
-                            }}
-                            onClick={()=> formik.handleReset()}
-                          >
-                            CANCEL
-                          </Button>
-                        </Grid>
-                        <Grid
-                          item
-                          xs={12}
-                          md={6}
-                          sx={{
-                            display: "flex",
-                            justifyContent: "right",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            className="lato"
-                            sx={{
-                              width: { xs: "100%", md: "unset" },
-                              textTransform: "unset",
-                              border: "1px solid black",
-                              padding: "12px 48px",
-                              fontSize: "16px",
-                              fontWeight: "700",
-                              borderRadius: "0px",
-                              backgroundColor: "#000000",
-                              color: theme.palette.common.white,
-                              transition: "0.3s",
-                              "&:hover": {
-                                backgroundColor: "#FFFFFF",
-                                color: theme.palette.common.black,
-                              },
-                            }}
-                          >
-                            SAVE
-                          </Button>
-                        </Grid>
-                      </>
-                    ) : (
-                      <Grid
-                        item
-                        xs={12}
+                    <Grid xs={12} my={4} sx={{ padding: "0px 0px 0px 16px" }}>
+                      <Typography my={2} sx={{ fontSize: "15px" }}>
+                        Attach up to 5 files: If you have any attachments to add
+                        to your submission (such as photos, receipts, or screen
+                        shots), please attach up to 5 files so we can further
+                        assist you. Should a case require additional
+                        information, you may be asked to provide that at a later
+                        time.
+                      </Typography>
+                      <Typography sx={{ fontSize: "15px" }} my={2}>
+                        attach files
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sx={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        className="lato"
                         sx={{
-                          width: "100%",
-                          display: "flex",
-                          justifyContent: "end",
-                          alignItems: "center",
+                          width: { xs: "100%", md: "unset" },
+                          textTransform: "unset",
+                          border: "1px solid black",
+                          padding: "12px 48px",
+                          fontSize: "16px",
+                          fontWeight: "700",
+                          borderRadius: "0px",
+                          backgroundColor: "#000000",
+                          color: theme.palette.common.white,
+                          transition: "0.3s",
+                          "&:hover": {
+                            backgroundColor: "#FFFFFF",
+                            color: theme.palette.common.black,
+                          },
                         }}
                       >
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          className="lato"
-                          sx={{
-                            width: { xs: "100%", md: "unset" },
-                            textTransform: "unset",
-                            border: "1px solid black",
-                            padding: "12px 48px",
-                            fontSize: "16px",
-                            fontWeight: "700",
-                            borderRadius: "0px",
-                            backgroundColor: "#000000",
-                            color: theme.palette.common.white,
-                            transition: "0.3s",
-                            "&:hover": {
-                              backgroundColor: "#FFFFFF",
-                              color: theme.palette.common.black,
-                            },
-                          }}
-                        >
-                          CREATE ACCOUNT
-                        </Button>
-                      </Grid>
-                    )}
+                        SUBMIT{" "}
+                      </Button>
+                    </Grid>
                   </Grid>
                 </FormControl>
               </form>
@@ -445,4 +335,4 @@ const Register_form = ({edit}) => {
   );
 };
 
-export default Register_form;
+export default ContactForm;

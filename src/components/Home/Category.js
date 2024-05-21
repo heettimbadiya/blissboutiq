@@ -22,6 +22,16 @@ const Category = () => {
       <Box>
         <Container maxWidth="xl">
           <Box sx={{ padding: "50px 0" }}>
+          <Box
+            sx={{
+              fontSize: { xs: "45px", md: "54px" },
+              my: { xs: "60px", sm: "40px" },
+            }}
+            fontWeight={"800"}
+            className="lato"
+          >
+            CATEGORY
+          </Box>
             <Grid container>
               {categories.map((item, index) => (
                 <Grid
@@ -36,10 +46,10 @@ const Category = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    my: "25px"
+                    my: "25px",
                   }}
                 >
-                  <Box sx={{ width: { xs: "230px", lg: "190px" } }}>
+                  <Box sx={{ width: { xs: "230px", lg: "220px" } }}>
                     <img
                       src={item.img}
                       alt={item.img}

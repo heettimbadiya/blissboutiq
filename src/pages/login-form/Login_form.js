@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, Grid, TextField, Typography } from "@mui/material";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
@@ -95,81 +95,111 @@ const Login_form = () => {
                   >
                     {({ isSubmitting }) => (
                       <Form>
-                        <Field
-                          as={TextField}
-                          fullWidth
-                          margin="normal"
-                          label="Email"
-                          variant="outlined"
-                          name="email"
-                          helperText={
-                            <ErrorMessage className="ErrorColor" name="email" />
-                          }
-                        />
-                        <Typography sx={{ position: "relative" }}>
+                        <FormControl
+                          sx={{
+                            width: "100% !important",
+                            "& .MuiOutlinedInput-root": {
+                              "& fieldset": {
+                                borderColor: "#99999",
+                                borderRadius: "unset",
+                              },
+
+                              "&.Mui-focused fieldset": {
+                                borderColor: "#000",
+                              },
+                            },
+                            "& label.Mui-focused": {
+                              color: "#000",
+                              fontSize: "16px",
+                              fontWeight: "500",
+                              backgroundColor: "white",
+                            },
+                            "& label": {
+                              color: "#000000, opacity 45.0%",
+                              fontSize: "16px",
+                              fontWeight: "500",
+                              padding: "0 5px",
+                            },
+                          }}
+                        >
                           <Field
                             as={TextField}
                             fullWidth
                             margin="normal"
-                            label="Password"
-                            type={showPassword ? "text" : "password"}
+                            label="Email"
                             variant="outlined"
-                            name="password"
+                            name="email"
                             helperText={
                               <ErrorMessage
                                 className="ErrorColor"
-                                name="password"
+                                name="email"
                               />
                             }
                           />
-                          {showPassword ? (
-                            <VisibilityOff
-                              onClick={handleShow}
-                              sx={{
-                                position: "absolute",
-                                top: "45%",
-                                transform: "translateY(-50%)",
-                                right: "3%",
-                                cursor: "pointer",
-                              }}
+                          <Typography sx={{ position: "relative" }}>
+                            <Field
+                              as={TextField}
+                              fullWidth
+                              margin="normal"
+                              label="Password"
+                              type={showPassword ? "text" : "password"}
+                              variant="outlined"
+                              name="password"
+                              helperText={
+                                <ErrorMessage
+                                  className="ErrorColor"
+                                  name="password"
+                                />
+                              }
                             />
-                          ) : (
-                            <Visibility
-                              onClick={handleShow}
+                            {showPassword ? (
+                              <VisibilityOff
+                                onClick={handleShow}
+                                sx={{
+                                  position: "absolute",
+                                  top: "45%",
+                                  transform: "translateY(-50%)",
+                                  right: "3%",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            ) : (
+                              <Visibility
+                                onClick={handleShow}
+                                sx={{
+                                  position: "absolute",
+                                  top: "45%",
+                                  transform: "translateY(-50%)",
+                                  right: "3%",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            )}
+                          </Typography>
+                          <Box display="flex" justifyContent="end" my={3}>
+                            <Button
+                              type="submit"
+                              variant="contained"
+                              disabled={isSubmitting}
                               sx={{
-                                position: "absolute",
-                                top: "45%",
-                                transform: "translateY(-50%)",
-                                right: "3%",
-                                cursor: "pointer",
+                                textTransform: "unset",
+                                border: "1px solid black",
+                                padding: "12px 88px",
+                                fontSize: "16px",
+                                fontWeight: "500",
+                                borderRadius: "0px",
+                                backgroundColor: "#000000",
+                                color: theme.palette.common.white,
+                                "&:hover": {
+                                  backgroundColor: "#ffffff",
+                                  color: theme.palette.common.black,
+                                },
                               }}
-                            />
-                          )}
-                        </Typography>
-                        <Box display="flex" justifyContent="end" my={3}>
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            disabled={isSubmitting}
-                            sx={{
-                              textTransform: "unset",
-                              border: "1px solid black",
-                              padding: "12px 88px",
-                              fontSize: "16px",
-                              fontWeight: "500",
-                              borderRadius: "0px",
-                              backgroundColor: "#000000",
-                              color: theme.palette.common.white,
-                              "&:hover": {
-                                backgroundColor: "#ffffff",
-                                color: theme.palette.common.black,
-                              },
-                            }}
-                          >
-                            Login
-                          </Button>
-                        </Box>
-                        {/* <Box display="flex" justifyContent="end" my={3}>
+                            >
+                              Login
+                            </Button>
+                          </Box>
+                          {/* <Box display="flex" justifyContent="end" my={3}>
                         <a
                           style={{
                             fontSize: "14px",
@@ -179,6 +209,7 @@ const Login_form = () => {
                           Forgot your password?
                         </a>
                       </Box> */}
+                        </FormControl>
                       </Form>
                     )}
                   </Formik>
