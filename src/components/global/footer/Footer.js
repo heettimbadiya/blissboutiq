@@ -49,9 +49,10 @@ const Footer = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Box sx={{ borderBottom: "1px solid #76767675" }}>
+          <Box sx={{ borderBottom: "1px solid #76767675", pb: "30px" }}>
             <Grid container justifyContent="center">
               <Grid
+                className="lato"
                 item
                 xs={12}
                 sx={{
@@ -76,7 +77,7 @@ const Footer = () => {
                 }}
               >
                 <Box>
-                  <Box sx={{ fontWeight: "600", mb: "15px" }}>
+                  <Box className="lato" sx={{ fontWeight: "600", mb: "15px" }}>
                     EXPLORE BLISS BOUTIQ.COM
                   </Box>
                   {footer1.map((val, ind) => (
@@ -114,7 +115,7 @@ const Footer = () => {
                 }}
               >
                 <Box>
-                  <Box sx={{ fontWeight: "600", mb: "15px" }}>
+                  <Box className="lato" sx={{ fontWeight: "600", mb: "15px" }}>
                     ONLINE SERVICES
                   </Box>
                   {footer2.map((val, ind) => (
@@ -152,7 +153,7 @@ const Footer = () => {
                 }}
               >
                 <Box>
-                  <Box sx={{ fontWeight: "600", mb: "15px" }}>
+                  <Box className="lato" sx={{ fontWeight: "600", mb: "15px" }}>
                     BOUTIQUE SERVICES
                   </Box>
                   {footer3.map((val, ind) => (
@@ -189,7 +190,7 @@ const Footer = () => {
                 }}
               >
                 <Box>
-                  <Box sx={{ fontWeight: "600", mb: "15px" }}>
+                  <Box className="lato" sx={{ fontWeight: "600", mb: "15px" }}>
                     THE HOUSE OF BLISS BOUTIQ
                   </Box>
                   {footer3.map((val, ind) => (
@@ -220,7 +221,7 @@ const Footer = () => {
           <Grid
             container
             sx={{
-              my: "30px",
+              m: "10px 0 30px",
             }}
           >
             <Grid
@@ -233,7 +234,7 @@ const Footer = () => {
               }}
             >
               <Box
-                className="fs-13"
+                className="fs-14"
                 sx={{
                   color: "textGray",
                   marginRight: "5px",
@@ -242,7 +243,7 @@ const Footer = () => {
               >
                 Change location and language
               </Box>
-              <Box className="fs-13" sx={{ textWrap: "nowrap" }}>
+              <Box className="fs-14" sx={{ textWrap: "nowrap" }}>
                 India-English
               </Box>
             </Grid>
@@ -254,20 +255,55 @@ const Footer = () => {
                 display: "flex",
                 justifyContent: { sm: "end", xs: "center" },
                 mt: { xs: "20px", sm: "0" },
+                "& > .MuiSvgIcon-root": {
+                  fontSize: "30px !important",
+                },
               }}
             >
-              <InstagramIcon sx={{ color: "textGray", marginLeft: "15px",transition:".4s",cursor:"pointer","&:hover":{
-                color:"white"
-              } }} />
-              <FacebookIcon sx={{ color: "textGray", marginLeft: "15px" ,transition:".4s",cursor:"pointer","&:hover":{
-                color:"white"
-              }}} />
-              <YouTubeIcon sx={{ color: "textGray", marginLeft: "15px" ,transition:".4s",cursor:"pointer","&:hover":{
-                color:"white"
-              }}} />
-              <LinkedInIcon sx={{ color: "textGray", marginLeft: "15px" ,transition:".4s",cursor:"pointer","&:hover":{
-                color:"white"
-              }}} />
+              <InstagramIcon
+                sx={{
+                  color: "textGray",
+                  marginLeft: "15px",
+                  transition: ".4s",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              />
+              <FacebookIcon
+                sx={{
+                  color: "textGray",
+                  marginLeft: "15px",
+                  transition: ".4s",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              />
+              <YouTubeIcon
+                sx={{
+                  color: "textGray",
+                  marginLeft: "15px",
+                  transition: ".4s",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              />
+              <LinkedInIcon
+                sx={{
+                  color: "textGray",
+                  marginLeft: "15px",
+                  transition: ".4s",
+                  cursor: "pointer",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              />
             </Grid>
           </Grid>
           <Box

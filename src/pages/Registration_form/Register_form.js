@@ -18,7 +18,7 @@ import React from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const Register_form = () => {
+const Register_form = ({edit}) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -62,7 +62,7 @@ const Register_form = () => {
   return (
     <>
       <Box>
-        <Container maxWidth="md">
+        <Container maxWidth={`${!edit && "md"}`}>
           <Box p={2}>
             <Box>
               <Typography
@@ -72,7 +72,7 @@ const Register_form = () => {
                 mt={3}
                 sx={{ fontSize: { xs: "28px", md: "32px" }, fontWeight: "900" }}
               >
-                CREATE ACCOUNT
+                {edit ? "MY ACCOUNT" : "CREATE ACCOUNT"}
               </Typography>
             </Box>
             <Box pt={2}>
@@ -80,8 +80,9 @@ const Register_form = () => {
                 fontWeight={500}
                 sx={{ fontSize: { xs: "12px", md: "18px" } }}
               >
-                Register now and start enjoying the benefits of a customer
-                account right away.
+                {edit
+                  ? ""
+                  : "Register now and start enjoying the benefits of a customer account right away."}
               </Typography>
             </Box>
             <Box pt={1}>
@@ -306,65 +307,133 @@ const Register_form = () => {
                         </IconButton>
                       </Box>
                     </Grid>
-                    <Grid xs={12} my={4} sx={{ padding: "0px 0px 0px 16px" }}>
-                      <Typography my={2} sx={{ fontSize: "15px" }}>
-                        The{" "}
-                        <b style={{ textDecoration: "underline" }}>
-                          {" "}
-                          Terms and Conditions
-                        </b>{" "}
-                        as well as the associated{" "}
-                        <b style={{ textDecoration: "underline" }}>
-                          Privacy Policy
-                        </b>{" "}
-                        are applicable for participation in HUGO BOSS
-                        EXPERIENCE.
-                      </Typography>
-                      <Typography sx={{ fontSize: "15px" }} my={2}>
-                        By clicking “create account”, I confirm that I have read
-                        and agree to the{" "}
-                        <b style={{ textDecoration: "underline" }}>
-                          {" "}
-                          Terms and Conditions{" "}
-                        </b>{" "}
-                        of HUGO BOSS AG for participation in HUGO BOSS
-                        EXPERIENCE.
-                      </Typography>
-                    </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sx={{
-                        width: "100%",
-                        display: "flex",
-                        justifyContent: "end",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        className="lato"
+                    {!edit && (
+                      <Grid xs={12} my={4} sx={{ padding: "0px 0px 0px 16px" }}>
+                        <Typography my={2} sx={{ fontSize: "15px" }}>
+                          The{" "}
+                          <b style={{ textDecoration: "underline" }}>
+                            {" "}
+                            Terms and Conditions
+                          </b>{" "}
+                          as well as the associated{" "}
+                          <b style={{ textDecoration: "underline" }}>
+                            Privacy Policy
+                          </b>{" "}
+                          are applicable for participation in HUGO BOSS
+                          EXPERIENCE.
+                        </Typography>
+                        <Typography sx={{ fontSize: "15px" }} my={2}>
+                          By clicking “create account”, I confirm that I have
+                          read and agree to the{" "}
+                          <b style={{ textDecoration: "underline" }}>
+                            {" "}
+                            Terms and Conditions{" "}
+                          </b>{" "}
+                          of HUGO BOSS AG for participation in HUGO BOSS
+                          EXPERIENCE.
+                        </Typography>
+                      </Grid>
+                    )}
+
+                    {edit ? (
+                      <>
+                        {" "}
+                        <Grid item xs={12} md={6}>
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            className="lato"
+                            sx={{
+                              textTransform: "unset",
+                              border: "unset",
+                              padding: "12px 48px",
+                              fontSize: "16px",
+                              fontWeight: "700",
+                              borderRadius: "0px",
+                              width: { xs: "100%", md: "unset" },
+                              backgroundColor: theme.palette.liteGrayBack,
+                              color: theme.palette.black,
+                              "&:hover": {
+                                backgroundColor: theme.palette.liteGrayBack,
+                                color: theme.palette.common.black,
+                              },
+                            }}
+                            onClick={()=> formik.handleReset()}
+                          >
+                            CANCEL
+                          </Button>
+                        </Grid>
+                        <Grid
+                          item
+                          xs={12}
+                          md={6}
+                          sx={{
+                            display: "flex",
+                            justifyContent: "right",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            className="lato"
+                            sx={{
+                              width: { xs: "100%", md: "unset" },
+                              textTransform: "unset",
+                              border: "1px solid black",
+                              padding: "12px 48px",
+                              fontSize: "16px",
+                              fontWeight: "700",
+                              borderRadius: "0px",
+                              backgroundColor: "#000000",
+                              color: theme.palette.common.white,
+                              transition: "0.3s",
+                              "&:hover": {
+                                backgroundColor: "#FFFFFF",
+                                color: theme.palette.common.black,
+                              },
+                            }}
+                          >
+                            SAVE
+                          </Button>
+                        </Grid>
+                      </>
+                    ) : (
+                      <Grid
+                        item
+                        xs={12}
                         sx={{
-                          width: { xs: "100%", md: "unset" },
-                          textTransform: "unset",
-                          border: "1px solid black",
-                          padding: "12px 48px",
-                          fontSize: "16px",
-                          fontWeight: "700",
-                          borderRadius: "0px",
-                          backgroundColor: "#000000",
-                          color: theme.palette.common.white,
-                          transition: "0.3s",
-                          "&:hover": {
-                            backgroundColor: "#FFFFFF",
-                            color: theme.palette.common.black,
-                          },
+                          width: "100%",
+                          display: "flex",
+                          justifyContent: "end",
+                          alignItems: "center",
                         }}
                       >
-                        CREATE ACCOUNT
-                      </Button>
-                    </Grid>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          className="lato"
+                          sx={{
+                            width: { xs: "100%", md: "unset" },
+                            textTransform: "unset",
+                            border: "1px solid black",
+                            padding: "12px 48px",
+                            fontSize: "16px",
+                            fontWeight: "700",
+                            borderRadius: "0px",
+                            backgroundColor: "#000000",
+                            color: theme.palette.common.white,
+                            transition: "0.3s",
+                            "&:hover": {
+                              backgroundColor: "#FFFFFF",
+                              color: theme.palette.common.black,
+                            },
+                          }}
+                        >
+                          CREATE ACCOUNT
+                        </Button>
+                      </Grid>
+                    )}
                   </Grid>
                 </FormControl>
               </form>
