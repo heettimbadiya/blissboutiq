@@ -521,6 +521,20 @@ const fullMegamenu1 = (
   <Container maxWidth="xl">
     <Box>
       <Grid container columnSpacing={4} justifyContent="center">
+        <Grid item xl={12}>
+          <Box
+            sx={{
+              fontWeight: "bold",
+              color: "black",
+              textAlign: "center",
+              py: "50px",
+              textWrap: "wrap !important",
+            }}
+            className="fs-14"
+          >
+            EXCLUSIVELY IN BOUTIQUES AND AUTHORIZED RETAILERS
+          </Box>{" "}
+        </Grid>
         <Grid item xl={2} xs={12}>
           <Box mt={{ xs: "20px", xl: "0" }}>
             <Box sx={{ width: "216px", height: "290px" }}>
@@ -887,6 +901,20 @@ const fullMegamenu4 = (
   <Container maxWidth={"xl"}>
     <Box>
       <Grid container columnSpacing={4} justifyContent={{ xl: "center" }}>
+        <Grid item xl={12}>
+          <Box
+            sx={{
+              fontWeight: "bold",
+              color: "black",
+              textAlign: "center",
+              py: "50px",
+              textWrap: "wrap !important",
+            }}
+            className="fs-14"
+          >
+            EXCLUSIVELY IN BOUTIQUES AND AUTHORIZED RETAILERS
+          </Box>{" "}
+        </Grid>
         {menuItems4.map((menuItem4, index) => (
           <Grid item xl={2} xs={12} key={index}>
             <Box mt={{ xs: "30px", xl: "0" }}>
@@ -974,8 +1002,10 @@ const fullMegamenu4 = (
   </Container>
 );
 
-// const fullMegamenu5 = (
 
+
+
+// const fullMegamenu5 = (
 //   <Container maxWidth={"xl"}>
 //     <Box>
 //       <Grid container columnSpacing={4} justifyContent={{ xl: "center" }}>
@@ -1017,52 +1047,24 @@ const fullMegamenu4 = (
 // );
 
 
-const fullMegamenu5 = (
-  <Container maxWidth={"xl"}>
-    <Box>
-      <Grid container columnSpacing={4} justifyContent={{ xl: "center" }}>
-        {menuItems5.map((item, index) => (
-          <Grid item xl={2} xs={12} key={index}>
-            <Box mt={{ xs: "30px", xl: "0" }}>
-              {item.imgSrc && (
-                <Box sx={{ width: "216px", height: "290px" }}>
-                  <img src={item.imgSrc} alt={`megamenu img${index}`} />
-                </Box>
-              )}
-              <Box
-                sx={{ fontWeight: "bold", color: "black" }}
-                className="fs-14"
-              >
-                {item.title}
-              </Box>
-
-              {item.subItems &&
-                item.subItems.map((subItem, subIndex) => (
-                  <Box
-                    key={subIndex}
-                    className="fs-14"
-                    sx={{
-                      fontWeight: "500",
-                      color: "black",
-                      mt: { xl: "20px", xs: "10px" },
-                    }}
-                  >
-                    {subItem}
-                  </Box>
-                ))}
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-  </Container>
-);
-
-
 const fullMegamenu6 = (
   <Container maxWidth={"xl"}>
     <Box>
       <Grid container spacing={4} justifyContent="center">
+        <Grid item xl={12}>
+          <Box
+            sx={{
+              fontWeight: "bold",
+              color: "black",
+              textAlign: "center",
+              py: "50px",
+              textWrap: "wrap !important",
+            }}
+            className="fs-14"
+          >
+            EXCLUSIVELY IN BOUTIQUES AND AUTHORIZED RETAILERS
+          </Box>{" "}
+        </Grid>
         {menuItems6.map((item, index) => (
           <Grid item xl={2} xs={12} key={index}>
             <Box mt={{ xs: "30px", xl: "0" }}>
@@ -1104,6 +1106,20 @@ const fullMegamenu7 = (
   <Container maxWidth={"xl"}>
     <Box>
       <Grid container columnSpacing={4} justifyContent={{ xl: "center" }}>
+        <Grid item xl={12}>
+          <Box
+            sx={{
+              fontWeight: "bold",
+              color: "black",
+              textAlign: "center",
+              py: "50px",
+              textWrap: "wrap !important",
+            }}
+            className="fs-14"
+          >
+            EXCLUSIVELY IN BOUTIQUES AND AUTHORIZED RETAILERS
+          </Box>{" "}
+        </Grid>
         {menuItems7.map((section, index) => (
           <Grid key={index} item xl={2} xs={12}>
             <Box mt={{ xs: "30px", xl: "0" }}>
@@ -1191,6 +1207,20 @@ const fullMegamenu8 = (
   <Container maxWidth="xl">
     <Box>
       <Grid container columnSpacing={4} justifyContent={{ xl: "center" }}>
+        <Grid item xl={12}>
+          <Box
+            sx={{
+              fontWeight: "bold",
+              color: "black",
+              textAlign: "center",
+              py: "50px",
+              textWrap: "wrap !important",
+            }}
+            className="fs-14"
+          >
+            EXCLUSIVELY IN BOUTIQUES AND AUTHORIZED RETAILERS
+          </Box>{" "}
+        </Grid>
         {menuItems8.map((menuItem, index) => (
           <Grid item xl={2} xs={12} key={index}>
             <Box mt={{ xs: "30px", xl: "0" }}>
@@ -1227,7 +1257,7 @@ export {
   fullMegamenu2,
   fullMegamenu3,
   fullMegamenu4,
-  fullMegamenu5,
+  // fullMegamenu5,
   fullMegamenu6,
   fullMegamenu7,
   fullMegamenu8,

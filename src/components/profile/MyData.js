@@ -27,10 +27,12 @@ import tShirt from "../../assets/images/profile/mydata/watchlist.webp";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Register_form from "../../pages/Registration_form/Register_form";
 const MyData = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [address, setAddress] = useState(false);
+  const [edit, setEdit] = useState(false);
   const [value, setValue] = useState("1");
 
   const handleChange = (event, newValue) => {
@@ -88,8 +90,9 @@ const MyData = () => {
           </Box>
           <Box>Customer number : 1177885241</Box>
           <Box
-            sx={{ mt: "35px", fontSize: "17px", fontWeight: "900" }}
+            sx={{ mt: "35px", fontSize: "17px", fontWeight: "900",cursor:"pointer" }}
             className="lato"
+            onClick={()=> setEdit(true)}
           >
             <EditIcon sx={{ fontSize: "17px" }} />
             EDIT
@@ -702,6 +705,8 @@ const MyData = () => {
       </Box>
   );
 
+  const editForm = (<Register_form edit={true} />)
+
   const offer = <Box>this page is not created</Box>;
 
   const leftSide = [
@@ -1003,6 +1008,7 @@ const MyData = () => {
                                 setRightSide(item.onclk);
                                 setHeader(item);
                                 setAddress(false);
+                                setEdit(false)
                               },
                             })}
                         sx={{
@@ -1063,7 +1069,7 @@ const MyData = () => {
               <Grid item lg={8} xs={12}>
                 {address ? (
                   myDataAddress
-                ) : (
+                ) : edit ? (editForm) : (
                   <>
                     {header.name === "MY DATA" && myData}
                     {header.name === "ORDER HISTORY" && orderHistory}

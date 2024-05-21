@@ -51,6 +51,7 @@ const Profile = () => {
                   justifyContent: "end",
                   alignItems: "center",
                   py: "15px",
+                  cursor:"pointer"
                 }}
               >
                 <Box pb="5px">LOG OUT</Box>

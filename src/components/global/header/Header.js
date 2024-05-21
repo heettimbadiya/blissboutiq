@@ -32,7 +32,7 @@ const Header = () => {
   const drawerWidth2 = 370;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState();
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleDrawerToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
     setMobileSubMenuOpen();
@@ -40,30 +40,29 @@ const navigate = useNavigate()
 
   const menuItems = [
     {
-      label: "Haute Couture",
+      label: "New Arrivals",
       to: "/",
       subMenu: null,
     },
     {
-      label: "Fashion",
+      label: "Men",
       to: "/service",
       subMenu: fullMegamenu1,
     },
-    { label: "High Jewellery ", to: "/about", subMenu: null },
+    { label: "Women ", to: "/about", subMenu: null },
     {
-      label: "Fine Jewellery",
+      label: "Kids",
       to: "/pages",
       subMenu: fullMegamenu2,
     },
     {
-      label: "Watches",
+      label: "Shoes & Accessories",
       to: "",
       subMenu: fullMegamenu3,
     },
-    { label: "Eyewear", to: "/contact", subMenu: fullMegamenu4 },
-    { label: "Fragrance", to: "/contact", subMenu: fullMegamenu5 },
-    { label: "Makeup", to: "/contact", subMenu: fullMegamenu6 },
-    { label: "Skincare", to: "/contact", subMenu: fullMegamenu7 },
+    { label: "Underwear", to: "/contact", subMenu: fullMegamenu4 },
+    { label: "Pre-owned", to: "/contact", subMenu: fullMegamenu7 },
+    { label: "Sale", to: "/contact", subMenu: fullMegamenu6 },
     { label: "About Bliss Boutiq", to: "/contact", subMenu: fullMegamenu8 },
   ];
 
@@ -162,7 +161,6 @@ const navigate = useNavigate()
         sx={{
           backgroundColor: "white",
           boxShadow: "0 2px 48px 0 rgba(0,0,0,.08)",
-          paddingInline:"50px"
         }}
       >
         <Toolbar>
@@ -204,9 +202,12 @@ const navigate = useNavigate()
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        height: { md: "77.5px", xs: "50px" },
+                        height: { xs: "77.5px" },
                         width: { md: "186px", xs: "120px" },
+                        cursor:"pointer"
+
                       }}
+                      onClick={()=> navigate("/")}
                     >
                       <img
                         src={logo}
@@ -215,25 +216,11 @@ const navigate = useNavigate()
                       />
                     </Box>
                   </Typography>
-                  <Box
-                    sx={{
-                      flexGrow: 0,
-                      display: { xs: "flex", xl: "none" },
-                    }}
-                  >
-                    <IconButton
-                      size="large"
-                      aria-label="menu"
-                      onClick={handleDrawerToggle}
-                      sx={{ color: "black", fontSize: "3px" }}
-                    >
-                      <MenuIcon />
-                    </IconButton>
-                  </Box>
                 </Box>
 
                 <nav>
                   <Drawer
+                    anchor="right"
                     variant="temporary"
                     open={mobileMenuOpen}
                     onClose={handleDrawerToggle}
@@ -270,12 +257,9 @@ const navigate = useNavigate()
                         fontWeight: "600",
                         cursor: "pointer",
                         textWrap: "nowrap",
-                        borderRadius: "15px",
 
                         "&:hover": {
-                          color: "white",
-                          backgroundColor: "black",
-                          borderRadius: "15px",
+                          textDecoration: "underline",
                           "& .subMenu": {
                             opacity: item.subMenu === null ? "0" : "1",
                             visibility:
@@ -324,7 +308,7 @@ const navigate = useNavigate()
               <Box
                 sx={{
                   color: "black",
-                  display: { sm: "flex", xs: "none" },
+                  display: { xs: "flex" },
                   alignItems: "center",
                   fontWeight: "600",
                   letterSpacing: "-0.7px",
@@ -334,13 +318,12 @@ const navigate = useNavigate()
                   className="lato"
                   sx={{
                     padding: "10px",
+                    display: { xs: "none", xl: "block" },
                     transition: "0.4s",
                     borderRadius: "15px",
                     cursor: "pointer",
                     "&:hover": {
-                      color: "white",
-                      backgroundColor: "black",
-                      borderRadius: "15px",
+                     textDecoration:"underline"
                     },
                   }}
                 >
@@ -351,13 +334,12 @@ const navigate = useNavigate()
                   sx={{
                     padding: "10px",
                     transition: "0.4s",
+                    display: { xs: "none", xl: "block" },
                     borderRadius: "15px",
                     textWrap: "nowrap",
                     cursor: "pointer",
                     "&:hover": {
-                      color: "white",
-                      backgroundColor: "black",
-                      borderRadius: "15px",
+                     textDecoration:"underline"
                     },
                   }}
                 >
@@ -378,12 +360,31 @@ const navigate = useNavigate()
                       fontSize: "22px",
                       cursor: "pointer",
                     }}
+                    onClick={() => navigate("/cart")}
                   >
                     <i class="fa-solid fa-cart-shopping"></i>
                   </Box>
-                  <Box sx={{ fontSize: "22px", cursor: "pointer" }} onClick={() => navigate("/profile")} >
+                  <Box
+                    sx={{ fontSize: "22px", cursor: "pointer" }}
+                    onClick={() => navigate("/profile")}
+                  >
                     <i class="fa-regular fa-user"></i>
                   </Box>
+                </Box>
+                <Box
+                  sx={{
+                    flexGrow: 0,
+                    display: { xs: "block", xl: "none" },
+                  }}
+                >
+                  <IconButton
+                    size="large"
+                    aria-label="menu"
+                    onClick={handleDrawerToggle}
+                    sx={{ color: "black", fontSize: "3px" }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
                 </Box>
               </Box>
             </Box>

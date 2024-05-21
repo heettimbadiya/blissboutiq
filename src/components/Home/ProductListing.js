@@ -3,15 +3,25 @@ import productImg1 from "../../assets/images/Home/Listing/productImg1.png";
 import productImg2 from "../../assets/images/Home/Listing/productImg2.png";
 import productImg3 from "../../assets/images/Home/Listing/productImg3.png";
 import productImg4 from "../../assets/images/Home/Listing/productImg4.png";
-import { Box, Container, Grid, Radio, RadioGroup, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Radio,
+  RadioGroup,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import StarIcon from "@mui/icons-material/Star";
+import { useNavigate } from "react-router-dom";
 
 const ProductListing = () => {
   // const swiperRefs = [useRef(null)];
-  const theme = useTheme()
+  const theme = useTheme();
+  const navigate = useNavigate();
   const [selectedColor, setSelectedColor] = useState("");
 
   const handleColorChange = (event) => {
@@ -37,12 +47,12 @@ const ProductListing = () => {
     { value: "#EBE6EC", label: "Blue" },
     { value: "#BF7F7F", label: "Yellow" },
   ];
-  
+
   return (
     <>
       <Box>
         <Container maxWidth="xl">
-          <Box className="Listing">
+          <Box className="Listing" onClick={() => navigate("/singleProduct")}>
             <Grid container spacing={3}>
               {[0, 1, 2].map((index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
@@ -87,7 +97,6 @@ const ProductListing = () => {
                       <button className="best-seller-button">
                         Best Seller
                       </button>
-                      <button className="quick-view-button">Quick View</button>
                       <button
                         className={`ListingSlider-prev navigation-button swiper-button-prev-${index}`}
                         // onClick={() => handlePrev(index)}

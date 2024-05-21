@@ -49,7 +49,7 @@ const Footer = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Box sx={{ borderBottom: "1px solid #76767675",pb:"30px" }}>
+          <Box sx={{ borderBottom: "1px solid #76767675", pb: "30px" }}>
             <Grid container justifyContent="center">
               <Grid
                 className="lato"
@@ -234,7 +234,7 @@ const Footer = () => {
               }}
             >
               <Box
-                className="fs-13"
+                className="fs-14"
                 sx={{
                   color: "textGray",
                   marginRight: "5px",
@@ -243,7 +243,7 @@ const Footer = () => {
               >
                 Change location and language
               </Box>
-              <Box className="fs-13" sx={{ textWrap: "nowrap" }}>
+              <Box className="fs-14" sx={{ textWrap: "nowrap" }}>
                 India-English
               </Box>
             </Grid>
@@ -255,6 +255,9 @@ const Footer = () => {
                 display: "flex",
                 justifyContent: { sm: "end", xs: "center" },
                 mt: { xs: "20px", sm: "0" },
+                "& > .MuiSvgIcon-root": {
+                  fontSize: "30px !important",
+                },
               }}
             >
               <InstagramIcon
