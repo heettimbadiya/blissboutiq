@@ -6,6 +6,7 @@ import Full from "./Full";
 import Cart from "./pages/cart/Cart";
 import Login_form from "./pages/login-form/Login_form";
 import Register_form from "./pages/Registration_form/Register_form";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Cart />
       <Login_form />
       <Footer /> */}
-      <Register_form />
+      {/* <Register_form /> */}
+      <Contact/>
     </>
   );
 }
