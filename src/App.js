@@ -12,10 +12,10 @@ function App() {
       {/* <Header /> */}
       <Home />
       {/* <Footer /> */}
-      <Cart />
+      {/* <Cart />
       <Login_form />
       <Footer /> 
-      <Register_form />
+      <Register_form /> */}
     </>
   );
 }
