@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Home from "./pages/Home/Home";
 import Header from "./components/global/header/Header";
 import Footer from "./components/global/footer/Footer";
-import Profile from "./components/profile/Profile";
 import MyData from "./components/profile/MyData";
 import { Route, Routes, useLocation } from "react-router-dom";
 import OrderHistory from "./components/profile/OrderHistory";
@@ -13,6 +12,7 @@ import Register_form from "./pages/Registration_form/Register_form";
 import Contact from "./pages/contact/Contact";
 import CartPage from "./components/cart/CartPage";
 import SingleProduct from "./components/Home/SingleProduct";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   function ScrollToTop() {
@@ -25,14 +25,13 @@ function App() {
 
   return (
     <>
-      {/* <Header />
-      <Home />
-      <Cart />
-      <Login_form />
-      <Footer /> */}
-      {/* <Register_form /> */}
-      <Contact />
       <Header />
+      {/* <Home />
+      <Cart />
+      <Login_form /> */}
+      {/* <Register_form /> */}
+      {/* <Contact />
+      <Header /> */}
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

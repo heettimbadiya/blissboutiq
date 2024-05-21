@@ -8,31 +8,31 @@ import CardGiftcardOutlinedIcon from "@mui/icons-material/CardGiftcardOutlined";
 import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const theme = useTheme();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const mainData = [
     {
       icon: <i class="fa-regular fa-user"></i>,
       title: "MY DATA",
       description: "Personal data, address and payment methods",
-      navigate:"myData"
+      navigate: "myData",
     },
     {
       icon: <WorkHistoryOutlinedIcon sx={{ fontSize: "90px" }} />,
       title: "ORDER HISTORY",
       description: "Review your past orders",
-      navigate:"orderHistory"
+      navigate: "orderHistory",
     },
     {
       icon: <FavoriteBorderOutlinedIcon sx={{ fontSize: "90px" }} />,
       title: "MY WISHLIST",
       description: "Save your favorite items",
-      navigate:"myWishilist"
+      navigate: "myWishilist",
     },
     {
       icon: <CardGiftcardOutlinedIcon sx={{ fontSize: "90px" }} />,
       title: "OFFERS AND PROMOCODES",
       description: "Join our loyalty program to receive discounts",
-      navigate:"offer"
+      navigate: "offer",
     },
   ];
   return (
@@ -51,7 +51,7 @@ const Profile = () => {
                   justifyContent: "end",
                   alignItems: "center",
                   py: "15px",
-                  cursor:"pointer"
+                  cursor: "pointer",
                 }}
               >
                 <Box pb="5px">LOG OUT</Box>

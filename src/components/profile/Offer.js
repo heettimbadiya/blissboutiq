@@ -28,7 +28,7 @@ const Offer = () => {
           </Grid>
           <Box
             sx={{
-              height: "100vh",
+              height: "80vh",
               width: "100%",
               display: "flex",
               justifyContent: "center",

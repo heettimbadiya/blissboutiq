@@ -39,7 +39,7 @@ const MyWishlist = () => {
             <Grid
               item
               xs={12}
-              lg={10}
+              lg={11}
               sx={{
                 display: "flex",
                 justifyContent: "center",

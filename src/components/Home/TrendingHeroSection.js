@@ -13,7 +13,7 @@ const TrendingHeroSection = ({
   textColor,
 }) => {
   return (
-    <>
+    <Box sx={{my: "70px"}}>
       <Box
         sx={{
           height: { md: "871px", xs: "550px" },
@@ -93,7 +93,7 @@ const TrendingHeroSection = ({
           </Box>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 };
 

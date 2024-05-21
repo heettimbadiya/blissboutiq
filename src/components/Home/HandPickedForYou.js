@@ -108,7 +108,7 @@ const HandPickedForYou = () => {
   ];
   return (
     <>
-      <Box>
+      <Box sx={{my: "70px"}}>
         <Container maxWidth="xl">
           <Box className="handpicked">
             <Box

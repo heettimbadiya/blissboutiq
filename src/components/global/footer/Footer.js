@@ -25,10 +25,7 @@ const Footer = () => {
     { lable: "FAQ", to: "/" },
   ];
 
-  const footer3 = [
-    { lable: "Find a Boutique", to: "/" },
-    { lable: "Appointments with CHANEL", to: "/" },
-  ];
+  const footer3 = [{ lable: "Contact", to: "/" }];
 
   const footer4 = [
     { lable: "Careers", to: "/" },
@@ -191,7 +188,7 @@ const Footer = () => {
               >
                 <Box>
                   <Box className="lato" sx={{ fontWeight: "600", mb: "15px" }}>
-                    THE HOUSE OF BLISS BOUTIQ
+                    CONTACT US
                   </Box>
                   {footer3.map((val, ind) => (
                     <NavLink to={val.to}>

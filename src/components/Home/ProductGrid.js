@@ -1,16 +1,17 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
-import img_1 from "../../assets/images/ProductImages/img-1.webp";
-import img_2 from "../../assets/images/ProductImages/img-2.webp";
-import img_3 from "../../assets/images/ProductImages/img-3.webp";
-import img_4 from "../../assets/images/ProductImages/img-4.webp";
-import img_5 from "../../assets/images/ProductImages/img-5.webp";
-import img_6 from "../../assets/images/ProductImages/img-6.webp";
-import img_7 from "../../assets/images/ProductImages/img-7.webp";
-import img_8 from "../../assets/images/ProductImages/img-8.webp";
+import img_1 from "../../assets/images/Home/ProductImages/img-1.png";
+import img_2 from "../../assets/images/Home/ProductImages/img-2.png";
+import img_3 from "../../assets/images/Home/ProductImages/img-3.png";
+import img_4 from "../../assets/images/Home/ProductImages/img-4.png";
+import img_5 from "../../assets/images/Home/ProductImages/img-5.png";
+import img_6 from "../../assets/images/Home/ProductImages/img-6.png";
+import img_7 from "../../assets/images/Home/ProductImages/img-7.png";
+import img_8 from "../../assets/images/Home/ProductImages/img-8.png";
+import img_9 from "../../assets/images/Home/ProductImages/img-9.png";
 
 const images = [
-  { src: img_8, height: "920px", gridProps: { lg: 7, xs: 12 } },
+  { src: img_9, height: "920px", gridProps: { lg: 7, xs: 12 } },
   { src: img_5, height: "460px", gridProps: { xs: 12, sm: 6, lg: 12 } },
   { src: img_3, height: "460px", gridProps: { xs: 12, sm: 6, lg: 12 } },
   { src: img_4, height: "700px", gridProps: { md: 6, xs: 12 } },
@@ -25,7 +26,12 @@ function ProductGrid() {
           <Grid item key={index} {...img.gridProps} sx={{ height: img.height }}>
             <img
               src={img.src}
-              style={{ objectFit: "cover", height: "100%", width: "100%" }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "50%",
+                height: "100%",
+                width: "100%",
+              }}
               alt={`img-${index + 1}`}
             />
           </Grid>
@@ -41,7 +47,12 @@ function ProductGrid() {
               >
                 <img
                   src={img.src}
-                  style={{ objectFit: "cover", height: "100%", width: "100%" }}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "50%",
+                    height: "100%",
+                    width: "100%",
+                  }}
                   alt={`img-${index + 2}`}
                 />
               </Grid>

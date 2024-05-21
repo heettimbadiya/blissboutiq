@@ -48,7 +48,7 @@ const MainSlider = () => {
   const mainSlider = isMobile ? mainSliderMobile : mainSliderDesktop;
   return (
     <>
-      <Box className="mainSlider" sx={{ position: "relative" }}>
+      <Box className="mainSlider" sx={{ position: "relative" ,mt: "70px"}}>
         <Swiper
           navigation={{
             nextEl: ".swiper-button-next ",

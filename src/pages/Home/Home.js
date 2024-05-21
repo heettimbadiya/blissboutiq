@@ -18,13 +18,9 @@ import restrending3 from "../../assets/images/Home/resTrending/restrending3.png"
 const Home = () => {
   return (
     <>
-      {/* <MainSlider />
-      <Category />
-      <ProductImages />
-      <ProductListing />
-      <SingleProduct />
+      <MainSlider />
       <Category2 />
-      <HandPickedForYou /> */}
+      {/* <Category /> */}
       <TrendingHeroSection
         img={trending1}
         resImg={restrending1}
@@ -34,6 +30,17 @@ const Home = () => {
         align={"left"}
         textColor={"white"}
       />
+      <ProductImages />
+      <TrendingHeroSection
+        img={trending2}
+        resImg={restrending2}
+        title={"ETERNAL STAPLES"}
+        heading={"POLO PERFECTION"}
+        btnText={"SHOP NOW"}
+        align={"left"}
+        textColor={"white"}
+      />
+      <HandPickedForYou />
 
       <TrendingHeroSection
         img={trending3}
@@ -45,15 +52,6 @@ const Home = () => {
         textColor={"black"}
       />
 
-      <TrendingHeroSection
-        img={trending2}
-        resImg={restrending2}
-        title={"ETERNAL STAPLES"}
-        heading={"POLO PERFECTION"}
-        btnText={"SHOP NOW"}
-        align={"left"}
-        textColor={"white"}
-      />
     </>
   );
 };

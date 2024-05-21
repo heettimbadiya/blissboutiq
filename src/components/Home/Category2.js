@@ -52,7 +52,7 @@ const Category2 = () => {
   ];
   return (
     <>
-      <Box>
+      <Box sx={{my: "70px"}}>
         <Container maxWidth="xl">
           <Box sx={{ position: "relative" }}>
             <Box
