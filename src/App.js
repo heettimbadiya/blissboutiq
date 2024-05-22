@@ -35,7 +35,7 @@ function App() {
 
       <Header />
       <ScrollToTop />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/myData" element={<MyData />} />
@@ -46,8 +46,9 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signUp" element={<Register_form />} />
         <Route path="/singleProduct" element={<SingleProduct />} />
-      </Routes> */}
-<Product />
+        <Route path="/product" element={<Product />} />
+      </Routes>
+
       <Footer />
     </>
   );

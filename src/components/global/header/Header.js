@@ -46,13 +46,13 @@ const Header = () => {
     },
     {
       label: "Men",
-      to: "/service",
+      to: "/product",
       subMenu: fullMegamenu1,
     },
     { label: "Women ", to: "/about", subMenu: null },
     {
       label: "Kids",
-      to: "/pages",
+      to: "/product",
       subMenu: fullMegamenu2,
     },
     {

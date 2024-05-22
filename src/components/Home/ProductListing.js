@@ -54,7 +54,7 @@ const ProductListing = () => {
         <Container maxWidth="xl">
           <Box className="Listing" onClick={() => navigate("/singleProduct")}>
             <Grid container spacing={3}>
-              {[0, 1, 2].map((index) => (
+              {[0, 1, 2,3,4,5,6].map((index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Box className="product-container">
                     <Box sx={{ position: "relative" }}>
