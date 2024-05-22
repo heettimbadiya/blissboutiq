@@ -144,11 +144,9 @@ img {
 
 /* ==================login================== */
 
-
 /* ============== profile tabs ============= */
 .css-1aquho2-MuiTabs-indicator {
-   
-    background-color: unset !important;
+  background-color: unset !important;
 }
 /* ==================login==================== */
 .css-1wc848c-MuiFormHelperText-root {
@@ -162,8 +160,18 @@ img {
 
 /* ===================== product according ========================= */
 
-#accordingProduct .css-1086bdv-MuiPaper-root-MuiAccordion-root{
+#accordingProduct .css-1086bdv-MuiPaper-root-MuiAccordion-root {
   border-radius: unset !important;
-  border-bottom:1px solid #CCCCCC !important;
+  border-bottom: 1px solid #cccccc !important;
   box-shadow: unset;
+}
+
+.css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
+  margin: 0px 0px !important;
+}
+.css-yu7sx-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+  min-height: 0px !important;
+}
+.css-yu7sx-MuiButtonBase-root-MuiAccordionSummary-root {
+  padding: 0px 0px !important;
 }

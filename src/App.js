@@ -30,8 +30,8 @@ function App() {
       <Cart />
       <Login_form /> */}
       {/* <Register_form /> */}
-      {/* <Contact />
-      <Header /> */}
+      {/* <Contact /> */}
+      {/* <Header /> */}
 
       <Header />
       <ScrollToTop />
