@@ -160,3 +160,10 @@ img {
   border-radius: 0px !important;
 }
 
+/* ===================== product according ========================= */
+
+#accordingProduct .css-1086bdv-MuiPaper-root-MuiAccordion-root{
+  border-radius: unset !important;
+  border-bottom:1px solid #CCCCCC !important;
+  box-shadow: unset;
+}

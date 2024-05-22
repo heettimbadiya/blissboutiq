@@ -13,6 +13,7 @@ import Contact from "./pages/contact/Contact";
 import CartPage from "./components/cart/CartPage";
 import SingleProduct from "./components/Home/SingleProduct";
 import Profile from "./pages/profile/Profile";
+import Product from "./components/product/Product";
 
 function App() {
   function ScrollToTop() {
@@ -25,15 +26,16 @@ function App() {
 
   return (
     <>
-      <Header />
       {/* <Home />
       <Cart />
       <Login_form /> */}
       {/* <Register_form /> */}
       {/* <Contact />
       <Header /> */}
+
+      <Header />
       <ScrollToTop />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/myData" element={<MyData />} />
@@ -44,8 +46,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signUp" element={<Register_form />} />
         <Route path="/singleProduct" element={<SingleProduct />} />
-      </Routes>
-
+      </Routes> */}
+<Product />
       <Footer />
     </>
   );
