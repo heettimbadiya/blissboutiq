@@ -14,6 +14,7 @@ import CartPage from "./components/cart/CartPage";
 import SingleProduct from "./components/Home/SingleProduct";
 import Profile from "./pages/profile/Profile";
 import Product from "./components/product/Product";
+import { RecoilRoot } from "recoil";
 
 function App() {
   function ScrollToTop() {
@@ -26,29 +27,25 @@ function App() {
 
   return (
     <>
-      {/* <Home />
-      <Cart />
-      <Login_form /> */}
-      {/* <Register_form /> */}
-      {/* <Contact /> */}
-      {/* <Header /> */}
-
-      <Header />
-      <ScrollToTop />
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/myData" element={<MyData />} />
-        <Route path="/orderHistory" element={<OrderHistory />} />
-        <Route path="/myWishilist" element={<MyWishlist />} />
-        <Route path="/offer" element={<Offer />} />
-        <Route path="/login" element={<Login_form />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/signUp" element={<Register_form />} />
-        <Route path="/singleProduct" element={<SingleProduct />} />
-      </Routes> */}
-<Product />
-      <Footer />
+      <RecoilRoot>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login_form />}></Route>
+          <Route path="/register" element={<Register_form />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/myData" element={<MyData />} />
+          <Route path="/orderHistory" element={<OrderHistory />} />
+          <Route path="/myWishilist" element={<MyWishlist />} />
+          <Route path="/offer" element={<Offer />} />
+          <Route path="/login" element={<Login_form />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/signUp" element={<Register_form />} />
+          <Route path="/singleProduct" element={<SingleProduct />} />
+        </Routes>
+        <Footer />
+      </RecoilRoot>
     </>
   );
 }

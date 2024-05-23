@@ -1,6 +1,14 @@
 import { useTheme } from "@emotion/react";
-import { Box, Button, FormControl, Grid, TextField, Typography } from "@mui/material";
-import { ErrorMessage, Field, Formik, Form } from "formik";
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  IconButton,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import React, { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
@@ -9,33 +17,86 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import HistoryIcon from "@mui/icons-material/History";
 import StarIcon from "@mui/icons-material/Star";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRecoilState } from "recoil";
+import { profile } from "../../atoms/authAtoms";
 
-const Login_form = () => {
+const Login_form = ({ edit }) => {
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
+  const [profileData, setProfileData] = useRecoilState(profile);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const navigate = useNavigate();
+  const notify = () => toast.success("account created successfully 😃");
+  const notifyError = (message) => toast.error(message);
 
   const handleShow = () => {
     setShowPassword(!showPassword);
   };
 
-  const initialValues = {
-    email: "",
-    password: "",
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
 
-  const validationSchema = Yup.object({
-    email: Yup.string()
-      .matches(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, "Invalid email address")
-      .required("Enter a valid email"),
-    password: Yup.string().required("Enter a valid password"),
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .matches(
+          /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
+          "Invalid email address"
+        )
+        .required("Enter a valid email"),
+      password: Yup.string().required("Enter a valid password"),
+    }),
+
+    onSubmit: (values, actions) => {
+      axios
+        .post("https://blissbotique-backend.onrender.com/api/login", values)
+        .then((response) => {
+          console.log(response);
+          setProfileData(response.data.data);
+          actions.resetForm();
+          navigate("/cart");
+          if (response.data.email) {
+            notify();
+          }
+        })
+        .catch((error) => {
+          const status = error.response ? error.response.status : 500;
+          switch (status) {
+            case 400:
+              notifyError("Bad request. Please check your input.");
+              break;
+            case 401:
+              notifyError("Unauthorized. Please check your credentials.");
+              break;
+            case 403:
+              notifyError(
+                "Forbidden. You don't have permission to perform this action."
+              );
+              break;
+            case 404:
+              notifyError(
+                "Not found. The requested resource could not be found."
+              );
+              break;
+            case 500:
+              notifyError("Internal server error. Please try again later.");
+              break;
+            default:
+              notifyError("An unknown error occurred. Please try again.");
+              break;
+          }
+        });
+    },
   });
-
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-  };
-
   return (
-    <Box>
+    <Box mt={5} pt={5}>
+      <ToastContainer />
       <Grid container display={"flex"} justifyContent={"center"}>
         <Grid
           item
@@ -88,99 +149,89 @@ const Login_form = () => {
                   </Typography>
                 </Box>
                 <Box>
-                  <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={handleSubmit}
+                  <form
+                    onSubmit={formik.handleSubmit}
+                    onReset={formik.handleReset}
                   >
-                    {({ isSubmitting }) => (
-                      <Form>
-                        <FormControl
-                          sx={{
-                            width: "100% !important",
-                            "& .MuiOutlinedInput-root": {
-                              "& fieldset": {
-                                borderColor: "#99999",
-                                borderRadius: "unset",
-                              },
+                    <FormControl
+                      sx={{
+                        width: "100% !important",
+                        "& .MuiOutlinedInput-root": {
+                          "& fieldset": {
+                            borderColor: "#99999",
+                            borderRadius: "unset",
+                          },
 
-                              "&.Mui-focused fieldset": {
-                                borderColor: "#000",
-                              },
-                            },
-                            "& label.Mui-focused": {
-                              color: "#000",
-                              fontSize: "16px",
-                              fontWeight: "500",
-                              backgroundColor: "white",
-                            },
-                            "& label": {
-                              color: "#000000, opacity 45.0%",
-                              fontSize: "16px",
-                              fontWeight: "500",
-                              padding: "0 5px",
-                            },
-                          }}
-                        >
-                          <Field
-                            as={TextField}
+                          "&.Mui-focused fieldset": {
+                            borderColor: "#000",
+                          },
+                        },
+                        "& label.Mui-focused": {
+                          color: "#000",
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          backgroundColor: "white",
+                        },
+                        "& label": {
+                          color: "#000000, opacity 45.0%",
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          padding: "0 5px",
+                        },
+                      }}
+                    >
+                      <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                          <TextField
                             fullWidth
-                            margin="normal"
                             label="Email"
-                            variant="outlined"
                             name="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            error={
+                              formik.touched.email &&
+                              Boolean(formik.errors.email)
+                            }
                             helperText={
-                              <ErrorMessage
-                                className="ErrorColor"
-                                name="email"
-                              />
+                              formik.touched.email && formik.errors.email
                             }
                           />
-                          <Typography sx={{ position: "relative" }}>
-                            <Field
-                              as={TextField}
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Box sx={{ position: "relative" }}>
+                            <TextField
                               fullWidth
-                              margin="normal"
                               label="Password"
-                              type={showPassword ? "text" : "password"}
-                              variant="outlined"
                               name="password"
+                              type={showPassword ? "text" : "password"}
+                              value={formik.values.password}
+                              onChange={formik.handleChange}
+                              error={
+                                formik.touched.password &&
+                                Boolean(formik.errors.password)
+                              }
                               helperText={
-                                <ErrorMessage
-                                  className="ErrorColor"
-                                  name="password"
-                                />
+                                formik.touched.password &&
+                                formik.errors.password
                               }
                             />
-                            {showPassword ? (
-                              <VisibilityOff
-                                onClick={handleShow}
-                                sx={{
-                                  position: "absolute",
-                                  top: "45%",
-                                  transform: "translateY(-50%)",
-                                  right: "3%",
-                                  cursor: "pointer",
-                                }}
-                              />
-                            ) : (
-                              <Visibility
-                                onClick={handleShow}
-                                sx={{
-                                  position: "absolute",
-                                  top: "45%",
-                                  transform: "translateY(-50%)",
-                                  right: "3%",
-                                  cursor: "pointer",
-                                }}
-                              />
-                            )}
-                          </Typography>
+                            <IconButton
+                              onClick={handleClickShowPassword}
+                              sx={{ position: "absolute", right: 10, top: 10 }}
+                            >
+                              {showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </Box>
+                        </Grid>
+                        <Grid item xs={12}>
                           <Box display="flex" justifyContent="end" my={3}>
                             <Button
                               type="submit"
                               variant="contained"
-                              disabled={isSubmitting}
                               sx={{
                                 textTransform: "unset",
                                 border: "1px solid black",
@@ -191,7 +242,7 @@ const Login_form = () => {
                                 backgroundColor: "#000000",
                                 color: theme.palette.common.white,
                                 "&:hover": {
-                                  backgroundColor: "#ffffff",
+                                  backgroundColor: "#FFFFFF",
                                   color: theme.palette.common.black,
                                 },
                               }}
@@ -199,20 +250,10 @@ const Login_form = () => {
                               Login
                             </Button>
                           </Box>
-                          {/* <Box display="flex" justifyContent="end" my={3}>
-                        <a
-                          style={{
-                            fontSize: "14px",
-                            textDecoration: "undarline",
-                          }}
-                        >
-                          Forgot your password?
-                        </a>
-                      </Box> */}
-                        </FormControl>
-                      </Form>
-                    )}
-                  </Formik>
+                        </Grid>
+                      </Grid>
+                    </FormControl>
+                  </form>
                 </Box>
               </Box>
             </Grid>
@@ -324,8 +365,9 @@ const Login_form = () => {
                         color: theme.palette.common.black,
                       },
                     }}
+                    onClick={() => navigate("/register")}
                   >
-                    Login
+                    REGISTER NOW
                   </Button>
                 </Box>
                 <Box
