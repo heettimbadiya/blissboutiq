@@ -29,9 +29,11 @@
 }
 .mainSlider .swiper-button-prev {
   left: 130px;
+  cursor: pointer;
 }
 .mainSlider .swiper-button-next {
   right: 130px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 900px) {
   .mainSlider > .swiper-button-prev {
@@ -138,10 +140,12 @@
 
 .navigation-button.ListingSlider-prev {
   left: 10px;
+  cursor: pointer;
 }
 
 .navigation-button.ListingSlider-next {
   right: 10px;
+  cursor: pointer;
 }
 .radioBtn:checked{
   background-color: blue;

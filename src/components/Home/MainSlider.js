@@ -64,8 +64,8 @@ const MainSlider = () => {
             },
           }}
         >
-          {mainSlider.map((item) => (
-            <SwiperSlide>
+          {mainSlider.map((item,index) => (
+            <SwiperSlide key={index}>
               <Box>
                 <img
                   src={item}

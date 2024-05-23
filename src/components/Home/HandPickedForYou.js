@@ -108,7 +108,7 @@ const HandPickedForYou = () => {
   ];
   return (
     <>
-      <Box sx={{my: "70px"}}>
+      <Box sx={{ my: "70px" }}>
         <Container maxWidth="xl">
           <Box className="handpicked">
             <Box
@@ -137,7 +137,7 @@ const HandPickedForYou = () => {
                   pagination={{
                     clickable: true,
                     renderBullet: (bulletIndex, className) => {
-                      return `<span class="${className} custom-dot"><span class="dash"></span></span>`;
+                      return `<span className="${className} custom-dot"><span className="dash"></span></span>`;
                     },
                   }}
                   breakpoints={{
@@ -157,7 +157,13 @@ const HandPickedForYou = () => {
                 >
                   {categoryBox.map((item, index) => (
                     <SwiperSlide key={index}>
-                      <Box sx={{ position: "relative", pb: "40px" }}>
+                      <Box
+                        sx={{
+                          position: "relative",
+                          pb: "40px",
+                          cursor: "pointer",
+                        }}
+                      >
                         <Box
                           sx={{
                             position: "relative",
@@ -195,9 +201,7 @@ const HandPickedForYou = () => {
                         >
                           {item.title}
                         </Box>
-                        <Box sx={{ textAlign: "center", fontWeight: "500" }}>
-                          {item.price}
-                        </Box>
+                        <Box sx={{ fontWeight: "500" }}>{item.price}</Box>
                       </Box>
                     </SwiperSlide>
                   ))}

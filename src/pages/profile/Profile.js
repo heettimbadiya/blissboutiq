@@ -11,7 +11,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const mainData = [
     {
-      icon: <i class="fa-regular fa-user"></i>,
+      icon: <i className="fa-regular fa-user"></i>,
       title: "MY DATA",
       description: "Personal data, address and payment methods",
       navigate: "myData",

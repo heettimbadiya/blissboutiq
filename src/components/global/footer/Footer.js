@@ -78,7 +78,7 @@ const Footer = () => {
                     EXPLORE BLISS BOUTIQ.COM
                   </Box>
                   {footer1.map((val, ind) => (
-                    <NavLink to={val.to} style={{ color: "unset" }}>
+                    <NavLink to={val.to} style={{ color: "unset" }} key={ind}>
                       <Box
                         key={ind}
                         sx={{
@@ -116,7 +116,7 @@ const Footer = () => {
                     ONLINE SERVICES
                   </Box>
                   {footer2.map((val, ind) => (
-                    <NavLink to={val.to}>
+                    <NavLink to={val.to} key={ind}>
                       <Box
                         key={ind}
                         sx={{
@@ -154,7 +154,7 @@ const Footer = () => {
                     BOUTIQUE SERVICES
                   </Box>
                   {footer3.map((val, ind) => (
-                    <NavLink to={val.to}>
+                    <NavLink to={val.to} key={ind}>
                       <Box
                         key={ind}
                         sx={{
@@ -191,7 +191,7 @@ const Footer = () => {
                     CONTACT US
                   </Box>
                   {footer3.map((val, ind) => (
-                    <NavLink to={val.to}>
+                    <NavLink to={val.to} key={ind}>
                       {" "}
                       <Box
                         key={ind}

@@ -352,7 +352,7 @@ const Header = () => {
                   }}
                 >
                   <Box sx={{ fontSize: "22px", cursor: "pointer" }}>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                   </Box>
                   <Box
                     sx={{
@@ -362,13 +362,13 @@ const Header = () => {
                     }}
                     onClick={() => navigate("/cart")}
                   >
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i className="fa-solid fa-cart-shopping"></i>
                   </Box>
                   <Box
                     sx={{ fontSize: "22px", cursor: "pointer" }}
                     onClick={() => navigate("/profile")}
                   >
-                    <i class="fa-regular fa-user"></i>
+                    <i className="fa-regular fa-user"></i>
                   </Box>
                 </Box>
                 <Box

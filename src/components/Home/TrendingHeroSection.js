@@ -70,6 +70,7 @@ const TrendingHeroSection = ({
                 style={{
                   border: "none",
                   marginBottom: "30px",
+                  cursor:"pointer"
                 }}
               >
                 <Typography

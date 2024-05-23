@@ -75,8 +75,10 @@ img {
   z-index: 2;
   right: -18px;
   top: 36%;
+  cursor: pointer;
 }
 .handpicked .handpicked-prev {
+  cursor: pointer;
   position: absolute;
   z-index: 2;
   left: -18px;
@@ -84,10 +86,12 @@ img {
 }
 .category2 .category2-next {
   position: absolute;
+  cursor: pointer;
   top: 32px;
   right: 0;
 }
 .category2 .category2-prev {
+  cursor: pointer;
   position: absolute;
   top: 32px;
   left: unset;
@@ -144,11 +148,9 @@ img {
 
 /* ==================login================== */
 
-
 /* ============== profile tabs ============= */
 .css-1aquho2-MuiTabs-indicator {
-   
-    background-color: unset !important;
+  background-color: unset !important;
 }
 /* ==================login==================== */
 .css-1wc848c-MuiFormHelperText-root {
@@ -159,4 +161,3 @@ img {
 .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root {
   border-radius: 0px !important;
 }
-

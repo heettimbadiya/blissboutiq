@@ -68,7 +68,7 @@ function SingleProduct() {
               <Box>
                 <Grid container>
                   {singleProductImg.map((item, index) => (
-                    <Grid item md={6}>
+                    <Grid item md={6} key={index}>
                       <img src={item.img} alt={item.img} />
                     </Grid>
                   ))}
@@ -88,12 +88,12 @@ function SingleProduct() {
                 pagination={{
                   clickable: true,
                   renderBullet: (index, className) => {
-                    return `<span class="${className} custom-dot"><span class="dash"></span></span>`;
+                    return `<span className="${className} custom-dot"><span className="dash"></span></span>`;
                   },
                 }}
               >
-                {singleProductImg.map((item) => (
-                  <SwiperSlide>
+                {singleProductImg.map((item,index) => (
+                  <SwiperSlide key={index}>
                     <Box>
                       <Box sx={{ objectFit: "contain" }}>
                         <img
@@ -468,35 +468,35 @@ function SingleProduct() {
                       <Typography sx={{ paddingTop: "20px", fontSize: "16px" }}>
                         <i
                           style={{ padding: "0px 10px 0px 0px" }}
-                          class="fa-solid fa-box"
+                          className="fa-solid fa-box"
                         ></i>
                         40°C coloured wash
                       </Typography>
                       <Typography sx={{ paddingTop: "5px", fontSize: "16px" }}>
                         <i
                           style={{ padding: "0px 10px 0px 0px" }}
-                          class="fa-regular fa-circle-xmark"
+                          className="fa-regular fa-circle-xmark"
                         ></i>
                         Do Not Bleach
                       </Typography>
                       <Typography sx={{ paddingTop: "5px", fontSize: "16px" }}>
                         <i
                           style={{ padding: "0px 10px 0px 0px" }}
-                          class="fa-solid fa-rectangle-xmark"
+                          className="fa-solid fa-rectangle-xmark"
                         ></i>
                         Do Not Tumble Dry{" "}
                       </Typography>
                       <Typography sx={{ paddingTop: "5px", fontSize: "16px" }}>
                         <i
                           style={{ padding: "0px 10px 0px 0px" }}
-                          class="fa-solid fa-mask-ventilator"
+                          className="fa-solid fa-mask-ventilator"
                         ></i>
                         Iron Medium Heat{" "}
                       </Typography>
                       <Typography sx={{ paddingTop: "5px", fontSize: "16px" }}>
                         <i
                           style={{ padding: "0px 10px 0px 0px" }}
-                          class="fa-solid fa-square-parking"
+                          className="fa-solid fa-square-parking"
                         ></i>
                         Chemical dry cleaning P
                       </Typography>
