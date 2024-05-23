@@ -110,7 +110,7 @@ const Category2 = () => {
                           <Box
                             sx={{
                               position: "absolute",
-                              bottom: 0,
+                              bottom: {sm:"0px",xs: "4px"},
                               left: 0,
                               right: 0,
                               height: "50%",

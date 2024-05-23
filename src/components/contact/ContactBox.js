@@ -33,12 +33,16 @@ const ContactBox = () => {
                 <Grid item xs={12} sm={6} md={4} key={index}>
                   <Box
                     sx={{
-                      backgroundColor: "black",
-                      color: "white",
+                      border: "2px solid #d5d5d5",
                       padding: 2,
                       borderRadius: 1,
                       textAlign: "center",
                       height: "100%",
+                      transition: "0.4s",
+                      "&:hover": {
+                        borderColor: "black",
+                        transform: "translateY(-10px)"
+                      },
                     }}
                   >
                     <Typography variant="h6" gutterBottom>

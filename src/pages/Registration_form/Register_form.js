@@ -11,57 +11,103 @@ import {
   Typography,
   useTheme,
   Container,
+  FormHelperText,
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import React from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Register_form = ({edit}) => {
+const Register_form = ({ edit }) => {
   const theme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const navigate = useNavigate();
+  const notify = () => toast.success("account created successfully 😃");
+  const notifyError = (message) => toast.error(message);
 
   const formik = useFormik({
     initialValues: {
-      salutation: "Mr.",
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       day: "",
       month: "",
       year: "",
-      phoneNumber: "",
+      contact: "",
       email: "",
       password: "",
+      gender: "",
+      user_name: "",
     },
 
     validationSchema: Yup.object({
-      salutation: Yup.string().required("Required"),
-      firstName: Yup.string().required("Required"),
-      lastName: Yup.string().required("Required"),
+      gender: Yup.string().required("Required"),
+      first_name: Yup.string().required("Required"),
+      last_name: Yup.string().required("Required"),
+      user_name: Yup.string().required("Required"),
       day: Yup.number().min(1, "Invalid day").max(31, "Invalid day"),
       month: Yup.string(),
       year: Yup.number()
         .min(1900, "Invalid year")
         .max(new Date().getFullYear(), "Invalid year"),
-      phoneNumber: Yup.string()
+      contact: Yup.string()
         .matches(/^\+?\d{10,}$/, "Invalid phone number")
         .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
-        .min(8, "Password must be at least 8 characters")
+        .matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$")
         .required("Required"),
     }),
 
     onSubmit: (values, action) => {
-      console.log(values);
-      action.resetForm();
+      axios
+        .post("https://blissbotique-backend.onrender.com/api/register", values)
+        .then((response) => {
+          action.resetForm();
+          navigate("/");
+          if (response.data.email) {
+            notify();
+          }
+        })
+        .catch((error) => {
+          const status = error.response ? error.response.status : 500;
+          switch (status) {
+            case 400:
+              notifyError("Bad request. Please check your input.");
+              break;
+            case 401:
+              notifyError("Unauthorized. Please check your credentials.");
+              break;
+            case 403:
+              notifyError(
+                "Forbidden. You don't have permission to perform this action."
+              );
+              break;
+            case 404:
+              notifyError(
+                "Not found. The requested resource could not be found."
+              );
+              break;
+            case 500:
+              notifyError("Internal server error. Please try again later.");
+              break;
+            default:
+              notifyError("An unknown error occurred. Please try again.");
+              break;
+          }
+        });
     },
   });
+
   return (
     <>
-      <Box>
+      <ToastContainer />
+      <Box mt={5} pt={5}>
         <Container maxWidth={`${!edit && "md"}`}>
           <Box p={2}>
             <Box>
@@ -124,36 +170,60 @@ const Register_form = ({edit}) => {
                 >
                   <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                      <FormControl fullWidth>
+                      <FormControl
+                        fullWidth
+                        error={
+                          formik.touched.gender && Boolean(formik.errors.gender)
+                        }
+                      >
                         <InputLabel>Salutation</InputLabel>
                         <Select
-                          name="day"
-                          value={formik.values.day}
+                          name="gender"
+                          value={formik.values.gender}
                           onChange={formik.handleChange}
-                          error={
-                            formik.touched.day && Boolean(formik.errors.day)
+                          helperText={
+                            formik.touched.gender && formik.errors.gender
                           }
                         >
-                          <MenuItem value="Mr.">Mr.</MenuItem>
-                          <MenuItem value="Ms.">Ms.</MenuItem>
-                          <MenuItem value="Mrs.">Mrs.</MenuItem>
+                          <MenuItem value="men">Mr.</MenuItem>
+                          <MenuItem value="women">Ms.</MenuItem>
                         </Select>
+                        {formik.touched.gender && formik.errors.gender && (
+                          <FormHelperText>
+                            {formik.errors.gender}
+                          </FormHelperText>
+                        )}
                       </FormControl>
                     </Grid>
-                    <Grid item mg={6}></Grid>
+                    <Grid item xs={12} md={6}>
+                      <TextField
+                        fullWidth
+                        label="User Name"
+                        name="user_name"
+                        value={formik.values.user_name}
+                        onChange={formik.handleChange}
+                        error={
+                          formik.touched.user_name &&
+                          Boolean(formik.errors.user_name)
+                        }
+                        helperText={
+                          formik.touched.user_name && formik.errors.user_name
+                        }
+                      />
+                    </Grid>
                     <Grid item xs={12} md={6}>
                       <TextField
                         fullWidth
                         label="First Name"
-                        name="firstName"
+                        name="first_name"
                         value={formik.values.firstName}
                         onChange={formik.handleChange}
                         error={
-                          formik.touched.firstName &&
-                          Boolean(formik.errors.firstName)
+                          formik.touched.first_name &&
+                          Boolean(formik.errors.first_name)
                         }
                         helperText={
-                          formik.touched.firstName && formik.errors.firstName
+                          formik.touched.first_name && formik.errors.first_name
                         }
                       />
                     </Grid>
@@ -161,15 +231,15 @@ const Register_form = ({edit}) => {
                       <TextField
                         fullWidth
                         label="Last Name"
-                        name="lastName"
-                        value={formik.values.lastName}
+                        name="last_name"
+                        value={formik.values.last_name}
                         onChange={formik.handleChange}
                         error={
-                          formik.touched.lastName &&
-                          Boolean(formik.errors.lastName)
+                          formik.touched.last_name &&
+                          Boolean(formik.errors.last_name)
                         }
                         helperText={
-                          formik.touched.lastName && formik.errors.lastName
+                          formik.touched.last_name && formik.errors.last_name
                         }
                       />
                     </Grid>
@@ -256,16 +326,15 @@ const Register_form = ({edit}) => {
                       <TextField
                         fullWidth
                         label="Phone Number"
-                        name="phoneNumber"
-                        value={formik.values.phoneNumber}
+                        name="contact"
+                        value={formik.values.contact}
                         onChange={formik.handleChange}
                         error={
-                          formik.touched.phoneNumber &&
-                          Boolean(formik.errors.phoneNumber)
+                          formik.touched.contact &&
+                          Boolean(formik.errors.contact)
                         }
                         helperText={
-                          formik.touched.phoneNumber &&
-                          formik.errors.phoneNumber
+                          formik.touched.contact && formik.errors.contact
                         }
                       />
                     </Grid>
@@ -334,7 +403,6 @@ const Register_form = ({edit}) => {
                         </Typography>
                       </Grid>
                     )}
-
                     {edit ? (
                       <>
                         {" "}
@@ -358,7 +426,7 @@ const Register_form = ({edit}) => {
                                 color: theme.palette.common.black,
                               },
                             }}
-                            onClick={()=> formik.handleReset()}
+                            onClick={() => formik.handleReset()}
                           >
                             CANCEL
                           </Button>

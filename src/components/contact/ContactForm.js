@@ -61,7 +61,7 @@ const ContactForm = () => {
   });
   return (
     <>
-      <Box>
+      <Box my={"70px"}>
         <Container maxWidth="md">
           <Box p={2}>
             <Box pt={2}>

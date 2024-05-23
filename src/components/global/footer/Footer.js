@@ -25,7 +25,7 @@ const Footer = () => {
     { lable: "FAQ", to: "/" },
   ];
 
-  const footer3 = [{ lable: "Contact", to: "/" }];
+  const footer3 = [{ lable: "Contact", to: "/contact" }];
 
   const footer4 = [
     { lable: "Careers", to: "/" },

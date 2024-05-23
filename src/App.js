@@ -13,6 +13,8 @@ import Contact from "./pages/contact/Contact";
 import CartPage from "./components/cart/CartPage";
 import SingleProduct from "./components/Home/SingleProduct";
 import Profile from "./pages/profile/Profile";
+import Product from "./components/product/Product";
+import { RecoilRoot } from "recoil";
 
 function App() {
   function ScrollToTop() {
@@ -25,13 +27,14 @@ function App() {
 
   return (
     <>
-      <Header />
       {/* <Home />
       <Cart />
       <Login_form /> */}
       {/* <Register_form /> */}
-      {/* <Contact />
-      <Header /> */}
+      {/*  */}
+      {/* <Header /> */}
+
+      <Header />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,6 +47,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signUp" element={<Register_form />} />
         <Route path="/singleProduct" element={<SingleProduct />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <Footer />
