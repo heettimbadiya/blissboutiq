@@ -5,7 +5,6 @@ import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-import MarkerClusterGroup from "react-leaflet-cluster";
 
 const Map = () => {
   const markers = [
@@ -37,18 +36,18 @@ const Map = () => {
             style={{ height: "100%", width: "100%" }}
           >
             <TileLayer
-              attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
-              url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
             />
-            <MarkerClusterGroup chunkedLoading>
-              {markers.map((item, index) => (
-                <Marker key={index} position={item.gecode} icon={customIcon}>
-                  <Popup>
-                    <h2>{item.pop}</h2>
-                  </Popup>
-                </Marker>
-              ))}
-            </MarkerClusterGroup>
+            {/* <MarkerClusterGroup chunkedLoading> */}
+            {markers.map((item, index) => (
+              <Marker key={index} position={item.gecode} icon={customIcon}>
+                <Popup>
+                  <h2>{item.pop}</h2>
+                </Popup>
+              </Marker>
+            ))}
+            {/* </MarkerClusterGroup> */}
           </MapContainer>
         </div>
       </Box>

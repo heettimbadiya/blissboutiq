@@ -6,7 +6,6 @@ import {
   Toolbar,
   Typography,
   Collapse,
-  Button,
   ListItemButton,
   ListItem,
   Drawer,
@@ -49,7 +48,7 @@ const Header = () => {
       to: "/product",
       subMenu: fullMegamenu1,
     },
-    { label: "Women ", to: "/about", subMenu: null },
+    { label: "Women ", to: "/product", subMenu: null },
     {
       label: "Kids",
       to: "/product",
@@ -57,13 +56,13 @@ const Header = () => {
     },
     {
       label: "Shoes & Accessories",
-      to: "",
+      to: "/",
       subMenu: fullMegamenu3,
     },
-    { label: "Underwear", to: "/contact", subMenu: fullMegamenu4 },
-    { label: "Pre-owned", to: "/contact", subMenu: fullMegamenu7 },
-    { label: "Sale", to: "/contact", subMenu: fullMegamenu6 },
-    { label: "About Bliss Boutiq", to: "/contact", subMenu: fullMegamenu8 },
+    { label: "Underwear", to: "/", subMenu: fullMegamenu4 },
+    { label: "Pre-owned", to: "/", subMenu: fullMegamenu7 },
+    { label: "Sale", to: "/", subMenu: fullMegamenu6 },
+    { label: "About Bliss Boutiq", to: "/", subMenu: fullMegamenu8 },
   ];
 
   const handleSubMenuToggle = (index) => {
@@ -164,10 +163,7 @@ const Header = () => {
         }}
       >
         <Toolbar>
-          <Box
-            sx={{ width: "100%" }}
-            // px={{ xs: "0rem", sm: "0rem", md: "0rem", xl: "3rem" }}
-          >
+          <Box sx={{ width: "100%", px: "30px" }}>
             <Box
               sx={{
                 display: "flex",
@@ -204,10 +200,9 @@ const Header = () => {
                         justifyContent: "center",
                         height: { xs: "77.5px" },
                         width: { md: "186px", xs: "120px" },
-                        cursor:"pointer"
-
+                        cursor: "pointer",
                       }}
-                      onClick={()=> navigate("/")}
+                      onClick={() => navigate("/")}
                     >
                       <img
                         src={logo}
@@ -232,7 +227,6 @@ const Header = () => {
                       "& .MuiDrawer-paper": {
                         boxSizing: "border-box",
                         width: { xs: drawerWidth, sm: drawerWidth2 },
-                        // overflowX:"hidden"
                       },
                     }}
                   >
@@ -250,16 +244,29 @@ const Header = () => {
                       key={index}
                       sx={{
                         color: "black",
-                        padding: "10px",
+                        margin: "10px 10px 0px",
+                        pb: "10px",
                         position: "relative",
                         fontSize: "16px",
                         transition: "0.4s",
                         fontWeight: "600",
                         cursor: "pointer",
                         textWrap: "nowrap",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          bottom: "0",
+                          left: "0%",
+                          height: "2px",
+                          width: "0%",
+                          backgroundColor: "black",
+                          transition: ".4s",
+                        },
 
                         "&:hover": {
-                          textDecoration: "underline",
+                          "&::before": {
+                            width: "100%",
+                          },
                           "& .subMenu": {
                             opacity: item.subMenu === null ? "0" : "1",
                             visibility:
@@ -275,7 +282,6 @@ const Header = () => {
                       >
                         {item.label}
                       </NavLink>
-                      {/* <Box> */}
                       <Box
                         className="subMenu"
                         sx={{
@@ -285,7 +291,7 @@ const Header = () => {
                           top: "70px",
                           left: "50%",
                           transform: "translateX(-50%)",
-                          width: "100vw",
+                          width: "100%",
                           borderRadius: "8px",
                           color: "black",
                           p: "0px 10px 25px",
@@ -299,7 +305,6 @@ const Header = () => {
                       >
                         {item.subMenu}
                       </Box>
-                      {/* </Box> */}
                     </Box>
                   ))}
                 </Box>
@@ -316,14 +321,16 @@ const Header = () => {
               >
                 <Box
                   className="lato"
+                  onClick={() => navigate("/contact")}
                   sx={{
                     padding: "10px",
                     display: { xs: "none", xl: "block" },
                     transition: "0.4s",
                     borderRadius: "15px",
                     cursor: "pointer",
+
                     "&:hover": {
-                     textDecoration:"underline"
+                      textDecoration: "underline",
                     },
                   }}
                 >
@@ -338,8 +345,9 @@ const Header = () => {
                     borderRadius: "15px",
                     textWrap: "nowrap",
                     cursor: "pointer",
+
                     "&:hover": {
-                     textDecoration:"underline"
+                      textDecoration: "underline",
                     },
                   }}
                 >

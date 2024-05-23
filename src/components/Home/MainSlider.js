@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import img1 from "../../assets/images/Home/Mainslider/img1.png";
@@ -48,14 +48,18 @@ const MainSlider = () => {
   const mainSlider = isMobile ? mainSliderMobile : mainSliderDesktop;
   return (
     <>
-      <Box className="mainSlider" sx={{ position: "relative" ,mt: "70px"}}>
+      <Box className="mainSlider" sx={{ position: "relative", mt: "70px" }}>
         <Swiper
           navigation={{
-            nextEl: ".swiper-button-next ",
+            nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           className="mySwiper"
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
           loop={true}
           pagination={{
             clickable: true,

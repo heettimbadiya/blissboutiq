@@ -30,7 +30,7 @@ function App() {
       <Cart />
       <Login_form /> */}
       {/* <Register_form /> */}
-      {/* <Contact /> */}
+      {/*  */}
       {/* <Header /> */}
 
       <Header />
@@ -47,6 +47,7 @@ function App() {
         <Route path="/signUp" element={<Register_form />} />
         <Route path="/singleProduct" element={<SingleProduct />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <Footer />
