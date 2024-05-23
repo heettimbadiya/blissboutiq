@@ -27,25 +27,31 @@ function App() {
 
   return (
     <>
-      <RecoilRoot>
-        <ScrollToTop />
-        <Header />
-        <Routes>
-          <Route path="/login" element={<Login_form />}></Route>
-          <Route path="/register" element={<Register_form />}></Route>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/myData" element={<MyData />} />
-          <Route path="/orderHistory" element={<OrderHistory />} />
-          <Route path="/myWishilist" element={<MyWishlist />} />
-          <Route path="/offer" element={<Offer />} />
-          <Route path="/login" element={<Login_form />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/signUp" element={<Register_form />} />
-          <Route path="/singleProduct" element={<SingleProduct />} />
-        </Routes>
-        <Footer />
-      </RecoilRoot>
+      {/* <Home />
+      <Cart />
+      <Login_form /> */}
+      {/* <Register_form /> */}
+      {/*  */}
+      {/* <Header /> */}
+
+      <Header />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/myData" element={<MyData />} />
+        <Route path="/orderHistory" element={<OrderHistory />} />
+        <Route path="/myWishilist" element={<MyWishlist />} />
+        <Route path="/offer" element={<Offer />} />
+        <Route path="/login" element={<Login_form />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/signUp" element={<Register_form />} />
+        <Route path="/singleProduct" element={<SingleProduct />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      <Footer />
     </>
   );
 }
