@@ -12,7 +12,7 @@ import {
   List,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../../../assets/images/header/{CA3D619A-B80C-4338-9E4C-E682A7AA9F67}.png.jpg";
+import logo from "../../../assets/images/header/Asset 2@4x.png";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -201,13 +201,14 @@ const Header = () => {
                         height: { xs: "77.5px" },
                         width: { md: "186px", xs: "120px" },
                         cursor: "pointer",
+                        py:"10px",
                       }}
                       onClick={() => navigate("/")}
                     >
                       <img
                         src={logo}
                         alt="Logo"
-                        style={{ objectFit: "contain" }}
+                        style={{ objectFit: "contain"}}
                       />
                     </Box>
                   </Typography>

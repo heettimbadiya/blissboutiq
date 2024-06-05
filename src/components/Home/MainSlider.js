@@ -3,18 +3,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
-import img1 from "../../assets/images/Home/Mainslider/img1.png";
-import img2 from "../../assets/images/Home/Mainslider/img2.png";
-import img3 from "../../assets/images/Home/Mainslider/img3.png";
-import img4 from "../../assets/images/Home/Mainslider/img4.png";
-import img5 from "../../assets/images/Home/Mainslider/img5.png";
+import img1 from "../../assets/images/Home/Mainslider/img1.jpg";
+import img2 from "../../assets/images/Home/Mainslider/img2.jpg";
+import img3 from "../../assets/images/Home/Mainslider/img3.jpg";
+import img4 from "../../assets/images/Home/Mainslider/img4.jpg";
+import img5 from "../../assets/images/Home/Mainslider/img5.jpg";
 import img6 from "../../assets/images/Home/Mainslider/img6.png";
 
-import img1Mobile from "../../assets/images/Home/responsiveMainSlider/resImg1.png";
-import img2Mobile from "../../assets/images/Home/responsiveMainSlider/resImg2.png";
-import img3Mobile from "../../assets/images/Home/responsiveMainSlider/resImg3.png";
-import img4Mobile from "../../assets/images/Home/responsiveMainSlider/resImg4.png";
-import img5Mobile from "../../assets/images/Home/responsiveMainSlider/resImg5.png";
+import img1Mobile from "../../assets/images/Home/responsiveMainSlider/resImg1.jpg";
+import img2Mobile from "../../assets/images/Home/responsiveMainSlider/resImg2.jpg";
+import img3Mobile from "../../assets/images/Home/responsiveMainSlider/resImg3.jpg";
+import img4Mobile from "../../assets/images/Home/responsiveMainSlider/resImg4.jpg";
+import img5Mobile from "../../assets/images/Home/responsiveMainSlider/resImg5.jpg";
 import img6Mobile from "../../assets/images/Home/responsiveMainSlider/resImg6.png";
 
 import { Avatar, Box, Button, useMediaQuery, useTheme } from "@mui/material";
@@ -22,7 +22,7 @@ import { Avatar, Box, Button, useMediaQuery, useTheme } from "@mui/material";
 const MainSlider = () => {
   const swiperRef = useRef(null);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {

@@ -175,18 +175,7 @@ const HandPickedForYou = () => {
                             alt=""
                             style={{ height: "100% !important" }}
                           />
-                          <Box
-                            sx={{
-                              position: "absolute",
-                              bottom: "0px",
-                              padding: "8px 10px",
-                              color: theme.palette.common.black,
-                              fontSize: "18px",
-                              fontWeight: "800",
-                            }}
-                          >
-                            BOSS
-                          </Box>
+                         
                         </Box>
 
                         <Box

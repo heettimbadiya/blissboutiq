@@ -7,16 +7,15 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { NavLink } from "react-router-dom";
 const Footer = () => {
   const footer1 = [
-    { lable: "Haute Couture", to: "/" },
-    { lable: "Fashion", to: "/" },
-    { lable: "High Jewellery", to: "/" },
-    { lable: "Fine Jewellery", to: "/" },
-    { lable: "Watches", to: "/" },
-    { lable: "Eyewear", to: "/" },
-    { lable: "Fragrance", to: "/" },
-    { lable: "Makeup", to: "/" },
-    { lable: "Skincare", to: "/" },
-    { lable: "Sitemap", to: "/" },
+    { lable: "New Arrivals", to: "/" },
+    { lable: "Men", to: "/product" },
+    { lable: "Women", to: "/product" },
+    { lable: "Kids", to: "/product" },
+    { lable: "Shoes & Accessories", to: "/" },
+    { lable: "Underwear", to: "/" },
+    { lable: "Pre-owned", to: "/" },
+    { lable: "Sale", to: "/" },
+    { lable: "About Bliss Boutiq", to: "/" },
   ];
 
   const footer2 = [
@@ -307,8 +306,7 @@ const Footer = () => {
             className="fs-14"
             sx={{ textAlign: { xs: "center", sm: "start" } }}
           >
-            CHANEL (INDIA) PRIVATE LIMITED, 5th Floor, Unit No. 505 &506,
-            World-Mark 3, Hospitality District, IGIA, New Delhi, 110037, INDIA
+            BLISS BOUTIQ (INDIA) Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, vitae?
           </Box>
         </Container>
       </Box>
